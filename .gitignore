@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+
+# Environment
+.env
+.env.*
+
+# Stitch assets (regenerate with scripts/fetch-stitch.mjs)
+stitch-assets/
+
+# Logs
+*.log
+
+#cv
+*.pdf
+
+# OS
+.DS_Store
+Thumbs.db

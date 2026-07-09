@@ -1,0 +1,414 @@
+@import "tailwindcss";
+
+/* ==========================================
+   DESIGN TOKENS — Light mode (default)
+   ========================================== */
+:root {
+  /* Surfaces */
+  --surface:                  #f8f3eb;
+  --surface-dim:              #f3ece3;
+  --surface-elevated:         #ffffff;
+  --surface-container:        #fcf8f2;
+  --surface-container-low:    #f4eee6;
+  --surface-container-lowest: #fffdfa;
+  --surface-container-high:   #efe3d2;
+  --surface-container-highest:#e7d9c7;
+
+  /* Background */
+  --background:               #fcfaf7;
+
+  /* Text */
+  --on-surface:               #161513;
+  --on-surface-variant:       #5f5a54;
+  --text-muted:               #736d67;
+
+  /* Primary */
+  --primary:                  #0052cc;
+  --primary-container:        #e5efff;
+  --on-primary-container:     #003bb3;
+
+  /* Secondary */
+  --secondary-container:      #eef3fc;
+  --on-secondary-container:   #3b485c;
+
+  /* Tertiary */
+  --tertiary:                 #00b0ff;
+
+  /* Pure white / pure black */
+  --pure-white:               #ffffff;
+
+  /* Navbar / footer background */
+  --nav-bg:                   rgba(250,250,245,0.9);
+  --nav-border:               rgba(200,190,170,0.3);
+  --footer-bg:                #ede8df;
+  --footer-border:            rgba(180,170,155,0.45);
+
+  /* Glass cards */
+  --glass-bg:                 rgba(255,255,255,0.82);
+  --glass-border:             rgba(22,21,19,0.08);
+  --glass-panel-bg:           rgba(255,255,255,0.78);
+}
+
+/* ==========================================
+   DESIGN TOKENS — Dark mode overrides
+   ========================================== */
+.dark-theme {
+  /* Surfaces */
+  --surface:                  #141a22;
+  --surface-dim:              #0d1219;
+  --surface-elevated:         #1b2533;
+  --surface-container:        #1f2d3d;
+  --surface-container-low:    #18232e;
+  --surface-container-lowest: #101820;
+  --surface-container-high:   #243344;
+  --surface-container-highest:#2c3e52;
+
+  /* Background */
+  --background:               #0f1720;
+
+  /* Text */
+  --on-surface:               #e6eef8;
+  --on-surface-variant:       #a8b8cc;
+  --text-muted:               #8899aa;
+
+  /* Primary */
+  --primary:                  #3388ff;
+  --primary-container:        rgba(0, 82, 204, 0.25);
+  --on-primary-container:     #cce0ff;
+
+  /* Secondary */
+  --secondary-container:      rgba(255,255,255,0.06);
+  --on-secondary-container:   #c0bebb;
+
+  /* Tertiary */
+  --tertiary:                 #00d2ff;
+
+  /* Pure white (used as inverted accent) */
+  --pure-white:               #1b2533;
+
+  /* Navbar / footer background */
+  --nav-bg:                   rgba(15,23,32,0.92);
+  --nav-border:               rgba(255,255,255,0.07);
+  --footer-bg:                #0d1219;
+  --footer-border:            rgba(255,255,255,0.06);
+
+  /* Glass cards */
+  --glass-bg:                 rgba(27,37,51,0.88);
+  --glass-border:             rgba(255,255,255,0.08);
+  --glass-panel-bg:           rgba(27,37,51,0.80);
+}
+
+/* ==========================================
+   MAP TOKENS TO TAILWIND THEME
+   ========================================== */
+@theme {
+  /* Map CSS vars to Tailwind color names */
+  --color-surface:                  var(--surface);
+  --color-surface-dim:              var(--surface-dim);
+  --color-surface-elevated:         var(--surface-elevated);
+  --color-surface-container:        var(--surface-container);
+  --color-surface-container-low:    var(--surface-container-low);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-container-high:   var(--surface-container-high);
+  --color-surface-container-highest:var(--surface-container-highest);
+  --color-primary:                  var(--primary);
+  --color-primary-container:        var(--primary-container);
+  --color-on-primary-container:     var(--on-primary-container);
+  --color-on-surface:               var(--on-surface);
+  --color-on-surface-variant:       var(--on-surface-variant);
+  --color-on-secondary-container:   var(--on-secondary-container);
+  --color-secondary-container:      var(--secondary-container);
+  --color-text-muted:               var(--text-muted);
+  --color-pure-white:               var(--pure-white);
+  --color-tertiary:                 var(--tertiary);
+  --color-background:               var(--background);
+  --color-dark-surface:             #0f1720;
+  --color-dark-on-surface:          #e6eef8;
+
+  --spacing-gutter: 24px;
+  --spacing-margin-desktop: 64px;
+  --spacing-margin-mobile: 20px;
+  --spacing-container-max-width: 1200px;
+
+  --font-display-lg:  "Poppins", sans-serif;
+  --font-headline-lg: "Poppins", sans-serif;
+  --font-headline-md: "Poppins", sans-serif;
+  --font-body-lg:     "Poppins", sans-serif;
+  --font-body-md:     "Poppins", sans-serif;
+  --font-label-md:    "Poppins", sans-serif;
+  --font-label-sm:    "Poppins", sans-serif;
+}
+
+/* ==========================================
+   BASE STYLES
+   ========================================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--on-surface);
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Smooth token transitions for all elements */
+  *, *::before, *::after {
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      color 0.2s ease;
+  }
+
+  /* Disable transitions on initial page load for specific animated elements */
+  .reveal {
+    transition:
+      opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+}
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+nav.fixed {
+  background-color: var(--nav-bg);
+  border-bottom-color: var(--nav-border);
+}
+
+/* The dark-theme toggle button */
+.dark-theme button[aria-label="toggle-theme"],
+.dark-theme button[aria-label="toggle-lang"] {
+  color: var(--on-surface);
+  border-color: var(--nav-border);
+}
+
+/* ==========================================
+   HERO – white CTA card
+   ========================================== */
+.dark-theme .hero-cta-card {
+  background: rgba(27, 37, 51, 0.85);
+}
+
+/* Make the inline floating card text readable in dark mode */
+.dark-theme .bg-black\/70 {
+  background: rgba(20, 30, 44, 0.88) !important;
+}
+
+/* ==========================================
+   CARDS – white bg used in light mode
+   ========================================== */
+/* Service card highlighted (bg-white text-black) */
+.dark-theme .bg-white {
+  background-color: var(--surface-container) !important;
+  color: var(--on-surface) !important;
+}
+
+/* Border that is black/10 in light mode */
+.dark-theme .border-black\/10 {
+  border-color: rgba(255,255,255,0.08) !important;
+}
+.dark-theme .border-black\/20 {
+  border-color: rgba(255,255,255,0.12) !important;
+}
+
+/* "available badge" on hero */
+.dark-theme .bg-white\/80 {
+  background-color: rgba(27,37,51,0.80) !important;
+}
+
+/* ==========================================
+   GLASS CARDS & PANELS
+   ========================================== */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-panel {
+  background: var(--glass-panel-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+footer {
+  background-color: var(--surface);
+  border-top-color: var(--nav-border);
+}
+
+/* ==========================================
+   UTILITY OVERRIDES — keep Tailwind working
+   with CSS var tokens
+   ========================================== */
+
+/* Zinc text used on light card */
+.dark-theme .text-zinc-600 {
+  color: var(--text-muted) !important;
+}
+
+/* Pure white CTA button in dark mode becomes dark accent */
+.dark-theme .bg-pure-white {
+  background: var(--primary) !important;
+  color: #fff !important;
+}
+
+/* Work card black text */
+.dark-theme .text-black {
+  color: var(--on-surface) !important;
+}
+
+/* Emerald pulse dot — keep it */
+.dark-theme .bg-emerald-500 {
+  background-color: #10b981 !important;
+}
+
+/* ==========================================
+   TYPOGRAPHY UTILITIES
+   ========================================== */
+@layer utilities {
+  .font-display-lg {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(2.2rem, 5.2vw, 3.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+  }
+
+  .font-headline-lg {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  .font-headline-md {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+  }
+
+  .font-body-lg {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+  }
+
+  .font-body-md {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+
+  .font-label-md {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+  }
+
+  .font-label-sm {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  .max-w-container-max-width {
+    max-width: 1200px;
+  }
+
+  .px-margin-desktop {
+    padding-left: clamp(20px, 5vw, 64px);
+    padding-right: clamp(20px, 5vw, 64px);
+  }
+
+  .gap-gutter {
+    gap: 24px;
+  }
+
+  /* ---- Scroll-reveal animation ---- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---- Work card glow ---- */
+  .work-card-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(116, 48, 247, 0.15) 0%,
+      transparent 80%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .work-card:hover .work-card-glow {
+    opacity: 1;
+  }
+
+  /* ---- Blog card hover ---- */
+  .blog-card-transition {
+    transition:
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.3s ease;
+  }
+
+  .blog-card-transition:hover {
+    transform: translateY(-8px);
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* ==========================================
+   HERO TEXT ROTATOR
+   ========================================== */
+@keyframes heroTextSlideIn {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  15% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  85% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.hero-rotating-text {
+  display: inline-block;
+  animation: heroTextSlideIn 3s ease-in-out forwards;
+}
+
