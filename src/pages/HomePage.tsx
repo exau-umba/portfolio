@@ -125,9 +125,9 @@ export function HomePage() {
                 <Link to="/contact" className="rounded-full border border-black/10 bg-surface-container px-5 py-3 text-sm font-label-md text-on-surface sm:px-6">
                   {t("contact")}
                 </Link>
-                {/* <a href="/CV_Exaucé_Umba.pdf" target="_blank" rel="noreferrer" className="rounded-full border border-black/10 bg-surface-container px-5 py-3 text-sm font-label-md text-on-surface transition hover:bg-surface-container-highest sm:px-6">
+                <a href="/CV_Exaucé_Umba.pdf" target="_blank" rel="noreferrer" className="rounded-full border border-black/10 bg-surface-container px-5 py-3 text-sm font-label-md text-on-surface transition hover:bg-surface-container-highest sm:px-6">
                   {t("download_cv")}
-                </a> */}
+                </a>
               </div>
             </div>
 

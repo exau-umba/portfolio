@@ -206,9 +206,9 @@ export function Footer({ variant = "full" }: FooterProps) {
             <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
           </div>
           <p className="font-label-md text-text-muted">{t("based") ?? "Based: RDC / Remote"}</p>
-          {/* <a href="/CV_Exaucé_Umba.pdf" target="_blank" rel="noreferrer" className="font-label-md text-primary underline decoration-primary decoration-2 underline-offset-4 transition hover:text-on-surface">
+          <a href="/CV_Exaucé_Umba.pdf" target="_blank" rel="noreferrer" className="font-label-md text-primary underline decoration-primary decoration-2 underline-offset-4 transition hover:text-on-surface">
             {t("download_cv")}
-          </a> */}
+          </a>
         </FooterColumn>
       </div>
       <div style={{borderTopColor:'var(--nav-border)'}} className="mx-auto flex max-w-container-max-width flex-col items-center justify-between gap-4 border-t px-4 sm:px-6 md:px-margin-desktop py-8 text-text-muted md:flex-row">

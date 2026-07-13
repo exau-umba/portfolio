@@ -51,6 +51,10 @@ export function AboutPage() {
               </div>
               {/* Contacts rapides */}
               <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-3 text-sm">
+                <a href="/CV_Exaucé_Umba.pdf" target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-primary hover:bg-primary/20 transition-all font-label-sm">
+                  <Icon name="download" className="text-[18px]" />
+                  <span>{t("download_cv")}</span>
+                </a>
                 <a href="mailto:umbaexauce233@gmail.com" className="flex items-center gap-2 rounded-full border border-on-surface/10 bg-surface-container px-4 py-2 text-on-surface hover:bg-surface-container-high transition-colors">
                   <Icon name="mail" className="text-[18px] text-primary" />
                   <span className="font-label-sm hidden xs:inline">{t("email_val")}</span>
@@ -129,20 +133,27 @@ export function AboutPage() {
 
             <div className="reveal glass-card flex flex-col justify-between rounded-xl p-6 sm:p-8 sm:col-span-1 lg:col-span-5" data-delay="400">
               <div>
-                <h3 className="font-headline-md mb-5 text-on-surface">Expertise Focus</h3>
+                <h3 className="font-headline-md mb-5 text-on-surface">{t("expertise_focus")}</h3>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <Icon name="check_circle" className="mt-0.5 text-primary shrink-0" />
                     <div>
-                      <h4 className="font-label-md text-on-surface">System Security</h4>
-                      <p className="text-xs sm:text-sm text-text-muted">Implementing robust security protocols and monitoring.</p>
+                      <h4 className="font-label-md text-on-surface">{t("system_security")}</h4>
+                      <p className="text-xs sm:text-sm text-text-muted">{t("system_security_desc")}</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <Icon name="check_circle" className="mt-0.5 text-primary shrink-0" />
                     <div>
-                      <h4 className="font-label-md text-on-surface">Performance Tuning</h4>
-                      <p className="text-xs sm:text-sm text-text-muted">Identifying bottlenecks and optimizing for speed.</p>
+                      <h4 className="font-label-md text-on-surface">{t("performance_tuning")}</h4>
+                      <p className="text-xs sm:text-sm text-text-muted">{t("performance_tuning_desc")}</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Icon name="shield" className="mt-0.5 text-primary shrink-0" />
+                    <div>
+                      <h4 className="font-label-md text-on-surface">{t("cybersecurity_interest")}</h4>
+                      <p className="text-xs sm:text-sm text-text-muted">{t("cybersecurity_interest_desc")}</p>
                     </div>
                   </li>
                 </ul>
@@ -269,21 +280,46 @@ export function AboutPage() {
                   <Icon name="verified" className="text-primary" />
                   <span>{t("certifications_heading")}</span>
                 </h3>
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-1">
+                <div className="grid grid-cols-1 gap-3">
                   {[
+                    { title: t("cert_aws_educate"), date: t("cert_aws_educate_date"), url: "https://www.credly.com/badges/2147c0a5-5d6f-4d57-bc94-4d1df1376255/public_url" },
                     { title: t("cert_n8n"), date: t("cert_n8n_date") },
                     { title: t("cert_docker"), date: t("cert_docker_date") },
                     { title: t("cert_devops"), date: t("cert_devops_date") },
                     { title: t("cert_angular"), date: t("cert_angular_date") },
                   ].map((cert, i) => (
-                    <div key={i} className="flex items-start gap-3 rounded-xl border border-on-surface/10 bg-surface-container p-3 sm:p-4">
-                      <Icon name="workspace_premium" className="text-primary text-[20px] mt-0.5 shrink-0" />
-                      <div>
-                        <h4 className="font-label-md text-on-surface text-sm">{cert.title}</h4>
-                        <p className="text-xs text-text-muted mt-0.5">{cert.date}</p>
+                    <div key={i} className="flex items-center justify-between gap-3 rounded-xl border border-on-surface/10 bg-surface-container p-3 sm:p-4 hover:border-primary/30 transition-all duration-300">
+                      <div className="flex items-start gap-3">
+                        <Icon name="workspace_premium" className="text-primary text-[20px] mt-0.5 shrink-0" />
+                        <div>
+                          <h4 className="font-label-md text-on-surface text-sm">{cert.title}</h4>
+                          <p className="text-xs text-text-muted mt-0.5">{cert.date}</p>
+                        </div>
                       </div>
+                      {cert.url && (
+                        <a
+                          href={cert.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-label-sm text-xs text-primary hover:underline shrink-0 flex items-center gap-1 border border-primary/20 bg-primary-container/20 rounded-full px-3 py-1 hover:bg-primary-container/30 transition-colors"
+                        >
+                          <span>{t("verify_badge")}</span>
+                          <Icon name="open_in_new" className="text-[12px]" />
+                        </a>
+                      )}
                     </div>
                   ))}
+                </div>
+                <div className="pt-2 text-center">
+                  <a
+                    href="https://www.credly.com/users/exauce-umba"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 font-label-md text-sm text-primary hover:underline transition-all"
+                  >
+                    <span>{t("view_all_credly")}</span>
+                    <Icon name="arrow_forward" className="text-[16px]" />
+                  </a>
                 </div>
               </div>
 
