@@ -252,17 +252,20 @@ export function Footer({ variant = "full" }: FooterProps) {
           ))}
         </FooterColumn>
         <FooterColumn title={t("connect")}>
-          <a href="https://www.linkedin.com/in/exau-umba/" target="_blank" rel="noopener noreferrer" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
+          <a href="https://linkedin.com/in/exau-umba" target="_blank" rel="noopener noreferrer" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
             {t("social_linkedin")}
           </a>
-          <a href="https://www.facebook.com/exauce.umba.k" target="_blank" rel="noopener noreferrer" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
+          <a href="https://facebook.com/exauce.umba.k" target="_blank" rel="noopener noreferrer" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
             {t("social_facebook")}
+          </a>
+          <a href="https://instagram.com/exau-umba" target="_blank" rel="noopener noreferrer" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
+            {t("social_instagram")}
+          </a>
+          <a href="https://exauceumba.start.page" target="_blank" rel="noopener noreferrer" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
+            {t("social_startpage")}
           </a>
           <a href="https://github.com/exau-umba" target="_blank" rel="noopener noreferrer" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
             {t("social_github")}
-          </a>
-          <a href="https://x.com/exau-umba" target="_blank" rel="noopener noreferrer" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
-            {t("social_twitter")}
           </a>
           <Link to="/contact" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
             {t("contact")}
