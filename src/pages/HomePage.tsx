@@ -3,6 +3,7 @@ import { useRevealOnScroll } from "../hooks/useRevealOnScroll";
 import { useT } from "../i18n";
 import { Link } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
+import { use3DTilt } from "../hooks/use3DTilt";
 
 /**
  * Cycles through an array of phrases with a slide-from-bottom / slide-out-top animation.
@@ -87,9 +88,44 @@ const workflowSteps = [
   { step: "4", titleKey: "workflow_step_4_title", descKey: "workflow_step_4_desc" },
 ];
 
+function TiltProjectCard({ project }: { project: any }) {
+  const t = useT();
+  const tilt = use3DTilt(6);
+
+  return (
+    <div
+      ref={tilt.ref}
+      onMouseMove={tilt.onMouseMove}
+      onMouseLeave={tilt.onMouseLeave}
+      style={tilt.style}
+      className="group relative aspect-4/3 overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated md:aspect-square cursor-pointer"
+    >
+      <img src={project.image} alt={t(project.key + "_title")} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+      <div 
+        style={{ transform: "translateZ(20px)" }}
+        className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/95 via-black/40 to-transparent p-6 sm:p-8"
+      >
+        <h3 className="font-headline-md mb-2 text-white">{t(project.key + "_title")}</h3>
+        <p className="mb-4 line-clamp-2 font-body-md text-white/80">{t(project.key + "_desc")}</p>
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map((tag: string) => (
+            <span
+              key={tag}
+              className="rounded-full bg-white/10 border border-white/20 px-3 py-1 font-label-sm text-white backdrop-blur-md"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function HomePage() {
   useRevealOnScroll();
   const t = useT();
+  const profileTilt = use3DTilt(8);
 
   return (
     <div className="min-h-screen bg-background">
@@ -132,7 +168,13 @@ export function HomePage() {
             </div>
 
             <div className="relative flex flex-col items-center justify-center">
-              <div className="relative">
+              <div
+                ref={profileTilt.ref}
+                onMouseMove={profileTilt.onMouseMove}
+                onMouseLeave={profileTilt.onMouseLeave}
+                style={profileTilt.style}
+                className="relative"
+              >
                 {/* Glow behind */}
                 <div className="absolute -bottom-10 left-1/2 h-24 w-[80%] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
                 
@@ -143,7 +185,10 @@ export function HomePage() {
                 <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-background via-background/70 to-transparent pointer-events-none rounded-b-3xl" />
                 
                 {/* Overlay Card - centered on the bottom boundary line */}
-                <div className="absolute bottom-0 left-1/2 z-10 w-[85%] max-w-[300px] -translate-x-1/2 translate-y-1/2 rounded-2xl bg-surface-elevated/85 border border-on-surface/10 p-3 sm:p-4 text-center text-on-surface backdrop-blur-md shadow-xl">
+                <div
+                  style={{ transform: "translate3d(-50%, 50%, 30px)" }}
+                  className="absolute bottom-0 left-1/2 z-10 w-[85%] max-w-[300px] rounded-2xl bg-surface-elevated/85 border border-on-surface/10 p-3 sm:p-4 text-center text-on-surface backdrop-blur-md shadow-xl"
+                >
                   <p className="mb-3 font-body-md text-on-surface text-xs sm:text-sm">{t("heroLead_short")}</p>
                   <Link to="/contact" className="inline-block rounded-full bg-primary px-5 py-2 text-xs sm:text-sm font-label-md text-white shadow-md transition-transform hover:scale-95">
                     {t("emailMe")}
@@ -165,26 +210,7 @@ export function HomePage() {
           </div>
           <div className="grid grid-cols-1 gap-gutter md:grid-cols-2">
             {coreProjects.map((project) => (
-              <div
-                key={project.key}
-                className="group relative aspect-4/3 overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated md:aspect-square"
-              >
-                <img src={project.image} alt={t(project.key + "_title")} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/95 via-black/40 to-transparent p-6 sm:p-8">
-                  <h3 className="font-headline-md mb-2 text-white">{t(project.key + "_title")}</h3>
-                  <p className="mb-4 line-clamp-2 font-body-md text-white/80">{t(project.key + "_desc")}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-white/10 border border-white/20 px-3 py-1 font-label-sm text-white backdrop-blur-md"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <TiltProjectCard project={project} key={project.key} />
             ))}
           </div>
         </section>

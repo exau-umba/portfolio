@@ -1,10 +1,16 @@
 import { Icon } from "../components/Layout";
 import { useRevealOnScroll } from "../hooks/useRevealOnScroll";
 import { useT } from "../i18n";
+import { use3DTilt } from "../hooks/use3DTilt";
 
 export function AboutPage() {
   useRevealOnScroll();
   const t = useT();
+
+  const skillFullstackTilt = use3DTilt(6);
+  const skillDevopsTilt = use3DTilt(6);
+  const skillCloudTilt = use3DTilt(6);
+  const skillExpertiseTilt = use3DTilt(6);
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-background selection:bg-primary-container selection:text-on-primary-container">
@@ -80,59 +86,93 @@ export function AboutPage() {
             <p className="max-w-2xl font-body-md text-on-surface/60">{t("technical_proficiency_lead")}</p>
           </div>
           <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-12">
-            <div className="reveal glass-card flex flex-col justify-between rounded-xl p-6 sm:p-8 sm:col-span-1 lg:col-span-5" data-delay="100">
-              <div>
-                <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-primary-container/20 text-primary">
-                  <Icon name="layers" />
+            <div
+              ref={skillFullstackTilt.ref}
+              onMouseMove={skillFullstackTilt.onMouseMove}
+              onMouseLeave={skillFullstackTilt.onMouseLeave}
+              style={skillFullstackTilt.style}
+              className="reveal glass-card flex flex-col justify-between rounded-xl p-6 sm:p-8 sm:col-span-1 lg:col-span-5 cursor-pointer"
+              data-delay="100"
+            >
+              <div style={{ transform: "translateZ(20px)" }}>
+                <div>
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-primary-container/20 text-primary">
+                    <Icon name="layers" />
+                  </div>
+                  <h3 className="font-headline-md mb-3">{t("fullstack_title")}</h3>
+                  <p className="mb-6 text-text-muted text-sm sm:text-base">{t("fullstack_desc")}</p>
                 </div>
-                <h3 className="font-headline-md mb-3">{t("fullstack_title")}</h3>
-                <p className="mb-6 text-text-muted text-sm sm:text-base">{t("fullstack_desc")}</p>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {["React/Next.js", "Node.js", "TypeScript", "PostgreSQL", "GraphQL"].map((tag) => (
-                  <span key={tag} className="rounded-full border border-on-surface/10 bg-surface-container px-3 py-1 font-label-sm text-on-surface text-xs">
-                    {tag}
-                  </span>
-                ))}
+                <div className="flex flex-wrap gap-2">
+                  {["React/Next.js", "Node.js", "TypeScript", "PostgreSQL", "GraphQL"].map((tag) => (
+                    <span key={tag} className="rounded-full border border-on-surface/10 bg-surface-container px-3 py-1 font-label-sm text-on-surface text-xs">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="reveal glass-card flex flex-col justify-between rounded-xl p-6 sm:p-8 sm:col-span-1 lg:col-span-7" data-delay="200">
-              <div>
-                <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-primary-container/20 text-primary">
-                  <Icon name="settings_input_component" />
+            <div
+              ref={skillDevopsTilt.ref}
+              onMouseMove={skillDevopsTilt.onMouseMove}
+              onMouseLeave={skillDevopsTilt.onMouseLeave}
+              style={skillDevopsTilt.style}
+              className="reveal glass-card flex flex-col justify-between rounded-xl p-6 sm:p-8 sm:col-span-1 lg:col-span-7 cursor-pointer"
+              data-delay="200"
+            >
+              <div style={{ transform: "translateZ(20px)" }}>
+                <div>
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-primary-container/20 text-primary">
+                    <Icon name="settings_input_component" />
+                  </div>
+                  <h3 className="font-headline-md mb-3">{t("devops_title")}</h3>
+                  <p className="text-text-muted text-sm sm:text-base">{t("devops_desc")}</p>
                 </div>
-                <h3 className="font-headline-md mb-3">{t("devops_title")}</h3>
-                <p className="text-text-muted text-sm sm:text-base">{t("devops_desc")}</p>
-              </div>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {["Docker", "Kubernetes", "Terraform", "GitHub Actions", "Prometheus"].map((tag) => (
-                  <span key={tag} className="rounded-full border border-on-surface/10 bg-surface-container px-3 py-1 font-label-sm text-on-surface text-xs">
-                    {tag}
-                  </span>
-                ))}
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {["Docker", "Kubernetes", "Terraform", "GitHub Actions", "Prometheus"].map((tag) => (
+                    <span key={tag} className="rounded-full border border-on-surface/10 bg-surface-container px-3 py-1 font-label-sm text-on-surface text-xs">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="reveal glass-card flex flex-col justify-between rounded-xl p-6 sm:p-8 sm:col-span-1 lg:col-span-7" data-delay="300">
-              <div>
-                <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-primary-container/20 text-primary">
-                  <Icon name="cloud" />
+            <div
+              ref={skillCloudTilt.ref}
+              onMouseMove={skillCloudTilt.onMouseMove}
+              onMouseLeave={skillCloudTilt.onMouseLeave}
+              style={skillCloudTilt.style}
+              className="reveal glass-card flex flex-col justify-between rounded-xl p-6 sm:p-8 sm:col-span-1 lg:col-span-7 cursor-pointer"
+              data-delay="300"
+            >
+              <div style={{ transform: "translateZ(20px)" }}>
+                <div>
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-primary-container/20 text-primary">
+                    <Icon name="cloud" />
+                  </div>
+                  <h3 className="font-headline-md mb-3">{t("cloud_title")}</h3>
+                  <p className="mb-6 text-text-muted text-sm sm:text-base">{t("cloud_desc")}</p>
                 </div>
-                <h3 className="font-headline-md mb-3">{t("cloud_title")}</h3>
-                <p className="mb-6 text-text-muted text-sm sm:text-base">{t("cloud_desc")}</p>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {["AWS", "Azure", "Serverless", "Cloudflare"].map((tag) => (
-                  <span key={tag} className="rounded-full border border-on-surface/10 bg-surface-container px-3 py-1 font-label-sm text-on-surface text-xs">
-                    {tag}
-                  </span>
-                ))}
+                <div className="flex flex-wrap gap-2">
+                  {["AWS", "Azure", "Serverless", "Cloudflare"].map((tag) => (
+                    <span key={tag} className="rounded-full border border-on-surface/10 bg-surface-container px-3 py-1 font-label-sm text-on-surface text-xs">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="reveal glass-card flex flex-col justify-between rounded-xl p-6 sm:p-8 sm:col-span-1 lg:col-span-5" data-delay="400">
-              <div>
+            <div
+              ref={skillExpertiseTilt.ref}
+              onMouseMove={skillExpertiseTilt.onMouseMove}
+              onMouseLeave={skillExpertiseTilt.onMouseLeave}
+              style={skillExpertiseTilt.style}
+              className="reveal glass-card flex flex-col justify-between rounded-xl p-6 sm:p-8 sm:col-span-1 lg:col-span-5 cursor-pointer"
+              data-delay="400"
+            >
+              <div style={{ transform: "translateZ(20px)" }}>
                 <h3 className="font-headline-md mb-5 text-on-surface">{t("expertise_focus")}</h3>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">

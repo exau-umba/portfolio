@@ -1,6 +1,7 @@
 import { Icon } from "../components/Layout";
 import { useRevealOnScroll, useWorkCardGlow } from "../hooks/useRevealOnScroll";
 import { useT } from "../i18n";
+import { use3DTilt } from "../hooks/use3DTilt";
 
 const stats = [
   { labelKey: "uptime_target", value: "99.9%" },
@@ -13,6 +14,11 @@ export function WorksPage() {
   useRevealOnScroll();
   useWorkCardGlow();
   const t = useT();
+
+  const cardNcdTilt = use3DTilt(5);
+  const cardBboptTilt = use3DTilt(5);
+  const cardAnnuaireTilt = use3DTilt(5);
+  const cardDismoiTilt = use3DTilt(5);
 
   return (
     <div className="min-h-screen bg-background selection:bg-primary/30">
@@ -27,9 +33,15 @@ export function WorksPage() {
         </header>
 
         <section className="mx-auto grid max-w-container-max-width grid-cols-1 gap-gutter px-margin-desktop md:grid-cols-12">
-          <div className="work-card group reveal relative overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:col-span-8">
+          <div
+            ref={cardNcdTilt.ref}
+            onMouseMove={cardNcdTilt.onMouseMove}
+            onMouseLeave={cardNcdTilt.onMouseLeave}
+            style={cardNcdTilt.style}
+            className="work-card group reveal relative overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:col-span-8 cursor-pointer"
+          >
             <div className="work-card-glow" />
-            <div className="relative z-10 flex h-full flex-col p-10">
+            <div style={{ transform: "translateZ(20px)" }} className="relative z-10 flex h-full flex-col p-10">
               <div className="mb-8">
                 <span className="mb-4 inline-block rounded-full bg-primary-container/20 px-3 py-1 font-label-sm text-primary">
                   {t("arch_security")}
@@ -70,9 +82,15 @@ export function WorksPage() {
             </div>
           </div>
 
-          <div className="work-card group reveal relative overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:col-span-4">
+          <div
+            ref={cardBboptTilt.ref}
+            onMouseMove={cardBboptTilt.onMouseMove}
+            onMouseLeave={cardBboptTilt.onMouseLeave}
+            style={cardBboptTilt.style}
+            className="work-card group reveal relative overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:col-span-4 cursor-pointer"
+          >
             <div className="work-card-glow" />
-            <div className="relative z-10 flex h-full flex-col p-8">
+            <div style={{ transform: "translateZ(20px)" }} className="relative z-10 flex h-full flex-col p-8">
               <div className="mb-6">
                 <span className="mb-4 inline-block rounded-full bg-primary-container/20 px-3 py-1 font-label-sm text-primary">
                   {t("optimization_tool")}
@@ -108,9 +126,15 @@ export function WorksPage() {
             </div>
           </div>
 
-          <div className="work-card group reveal relative overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:col-span-5">
+          <div
+            ref={cardAnnuaireTilt.ref}
+            onMouseMove={cardAnnuaireTilt.onMouseMove}
+            onMouseLeave={cardAnnuaireTilt.onMouseLeave}
+            style={cardAnnuaireTilt.style}
+            className="work-card group reveal relative overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:col-span-5 cursor-pointer"
+          >
             <div className="work-card-glow" />
-            <div className="p-8 flex flex-col h-full justify-between">
+            <div style={{ transform: "translateZ(20px)" }} className="p-8 flex flex-col h-full justify-between">
               <div>
                 <span className="mb-4 inline-block rounded-full bg-primary-container/20 px-3 py-1 font-label-sm text-primary">
                   {t("public_registry")}
@@ -144,9 +168,15 @@ export function WorksPage() {
             </div>
           </div>
 
-          <div className="work-card group reveal relative overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:col-span-7">
+          <div
+            ref={cardDismoiTilt.ref}
+            onMouseMove={cardDismoiTilt.onMouseMove}
+            onMouseLeave={cardDismoiTilt.onMouseLeave}
+            style={cardDismoiTilt.style}
+            className="work-card group reveal relative overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:col-span-7 cursor-pointer"
+          >
             <div className="work-card-glow" />
-            <div className="flex h-full items-center gap-8 p-10">
+            <div style={{ transform: "translateZ(20px)" }} className="flex h-full items-center gap-8 p-10">
               <div className="w-1/2 flex flex-col justify-between h-full">
                 <div>
                   <span className="mb-4 inline-block rounded-full bg-primary-container/20 px-3 py-1 font-label-sm text-primary">
