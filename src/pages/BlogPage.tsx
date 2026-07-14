@@ -108,7 +108,7 @@ export function BlogPage() {
                   key={filter}
                   className={`whitespace-nowrap rounded-full px-5 py-2 font-label-md ${
                     index === 0
-                      ? "bg-primary text-white"
+                      ? "bg-primary text-on-primary"
                       : "border border-on-surface/10 bg-surface-container text-on-surface transition-colors hover:bg-surface-container-high"
                   }`}
                 >

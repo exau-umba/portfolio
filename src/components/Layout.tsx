@@ -122,7 +122,7 @@ export function Navbar({ activePath, ctaLabel = "Hire Me" }: NavbarProps) {
         <Link to="/" onClick={() => setMobileOpen(false)} className="font-headline-md font-semibold text-on-surface">
           Exaucé Umba
         </Link>
-        <div className="hidden items-center gap-6 lg:flex bg-primary/90 rounded-full px-4 py-2">
+        <div className="hidden items-center gap-6 lg:flex bg-surface-container/60 border border-on-surface/5 rounded-full px-4 py-2">
           {navLinks.map(({ labelFr, labelEn, to }) => {
             const isActive = activePath === to;
             const label = lang === "fr" ? labelFr : labelEn;
@@ -130,11 +130,10 @@ export function Navbar({ activePath, ctaLabel = "Hire Me" }: NavbarProps) {
               <Link
                 key={to}
                 to={to}
-                className={`font-label-md transition-colors duration-300 ${
+                className={`font-label-md transition-colors duration-300 px-3 py-1 rounded-full ${
                   isActive
-                    ? " font-bold text-primary bg-white/90 rounded-full px-2"
-                    // : "font-medium text-on-surface-variant hover:text-white"
-                    : "font-medium text-white/70 hover:text-white/90"
+                    ? "font-bold text-primary bg-primary/10"
+                    : "font-medium text-on-surface/75 hover:text-on-surface"
                 }`}
               >
                 {label}

@@ -190,7 +190,7 @@ export function HomePage() {
                   className="absolute bottom-0 left-1/2 z-10 w-[85%] max-w-[300px] rounded-2xl bg-surface-elevated/85 border border-on-surface/10 p-3 sm:p-4 text-center text-on-surface backdrop-blur-md shadow-xl"
                 >
                   <p className="mb-3 font-body-md text-on-surface text-xs sm:text-sm">{t("heroLead_short")}</p>
-                  <Link to="/contact" className="inline-block rounded-full bg-primary px-5 py-2 text-xs sm:text-sm font-label-md text-white shadow-md transition-transform hover:scale-95">
+                  <Link to="/contact" className="inline-block rounded-full bg-primary px-5 py-2 text-xs sm:text-sm font-label-md text-on-primary shadow-md transition-transform hover:scale-95">
                     {t("emailMe")}
                   </Link>
                 </div>
@@ -350,7 +350,7 @@ export function HomePage() {
               <h2 className="mb-12 font-display-lg">
                 {t("start_project")} <br className="hidden md:block" />
               </h2>
-              <Link to="/contact" className="inline-block rounded-full bg-primary px-12 py-4 font-label-md text-white transition-transform hover:scale-105">
+              <Link to="/contact" className="inline-block rounded-full bg-primary px-12 py-4 font-label-md text-on-primary transition-transform hover:scale-105">
                 {t("start_project")}
               </Link>
             </div>

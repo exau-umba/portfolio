@@ -24,6 +24,7 @@
 
   /* Primary */
   --primary:                  #003152;
+  --on-primary:               #ffffff;
   --primary-container:        #ADDFF1;
   --on-primary-container:     #003152;
 
@@ -73,6 +74,7 @@
 
   /* Primary */
   --primary:                  #ADDFF1;
+  --on-primary:               #003152;
   --primary-container:        rgba(0, 49, 82, 0.4);
   --on-primary-container:     #ADDFF1;
 
@@ -112,6 +114,7 @@
   --color-surface-container-high:   var(--surface-container-high);
   --color-surface-container-highest:var(--surface-container-highest);
   --color-primary:                  var(--primary);
+  --color-on-primary:               var(--on-primary);
   --color-primary-container:        var(--primary-container);
   --color-on-primary-container:     var(--on-primary-container);
   --color-on-surface:               var(--on-surface);
