@@ -5,22 +5,22 @@
    ========================================== */
 :root {
   /* Surfaces */
-  --surface:                  #f8f3eb;
-  --surface-dim:              #f3ece3;
+  --surface:                  #f0f4f8;
+  --surface-dim:              #e1e8f0;
   --surface-elevated:         #ffffff;
-  --surface-container:        #fcf8f2;
-  --surface-container-low:    #f4eee6;
-  --surface-container-lowest: #fffdfa;
-  --surface-container-high:   #efe3d2;
-  --surface-container-highest:#e7d9c7;
+  --surface-container:        #f5f8fb;
+  --surface-container-low:    #ecf1f6;
+  --surface-container-lowest: #fafcff;
+  --surface-container-high:   #e6edf3;
+  --surface-container-highest:#dce5ee;
 
   /* Background */
-  --background:               #fcfaf7;
+  --background:               #fafcff;
 
   /* Text */
-  --on-surface:               #161513;
-  --on-surface-variant:       #5f5a54;
-  --text-muted:               #736d67;
+  --on-surface:               #0a1118;
+  --on-surface-variant:       #485666;
+  --text-muted:               #60738a;
 
   /* Primary */
   --primary:                  #003152;
@@ -39,15 +39,15 @@
   --pure-white:               #ffffff;
 
   /* Navbar / footer background */
-  --nav-bg:                   rgba(250,250,245,0.9);
-  --nav-border:               rgba(200,190,170,0.3);
-  --footer-bg:                #ede8df;
-  --footer-border:            rgba(180,170,155,0.45);
+  --nav-bg:                   rgba(250,253,255,0.9);
+  --nav-border:               rgba(0, 49, 82, 0.08);
+  --footer-bg:                #e6edf3;
+  --footer-border:            rgba(0, 49, 82, 0.1);
 
   /* Glass cards */
-  --glass-bg:                 rgba(255,255,255,0.82);
-  --glass-border:             rgba(22,21,19,0.08);
-  --glass-panel-bg:           rgba(255,255,255,0.78);
+  --glass-bg:                 rgba(255,255,255,0.85);
+  --glass-border:             rgba(0, 49, 82, 0.08);
+  --glass-panel-bg:           rgba(255,255,255,0.80);
 }
 
 /* ==========================================
