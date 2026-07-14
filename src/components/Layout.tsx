@@ -3,6 +3,79 @@ import { useLocation, Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import UiContext from "../contexts/UiContext";
 import { useT } from "../i18n";
+import {
+  FaEnvelope,
+  FaPhone,
+  FaLink,
+  FaDownload,
+  FaLayerGroup,
+  FaCogs,
+  FaCloud,
+  FaCheckCircle,
+  FaShieldAlt,
+  FaBriefcase,
+  FaGraduationCap,
+  FaIdBadge,
+  FaCertificate,
+  FaAward,
+  FaExternalLinkAlt,
+  FaArrowRight,
+  FaLanguage,
+  FaAddressBook,
+  FaLock,
+  FaEye,
+  FaTerminal,
+  FaNetworkWired,
+  FaMoon,
+  FaSun,
+  FaBars,
+  FaTimes,
+  FaCode,
+  FaBolt,
+  FaSyncAlt,
+  FaPaperPlane,
+  FaMapMarkerAlt,
+  FaArrowLeft,
+  FaLightbulb,
+  FaCheck
+} from "react-icons/fa";
+
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  mail: FaEnvelope,
+  phone: FaPhone,
+  link: FaLink,
+  download: FaDownload,
+  layers: FaLayerGroup,
+  settings_input_component: FaCogs,
+  cloud: FaCloud,
+  check_circle: FaCheckCircle,
+  shield: FaShieldAlt,
+  work: FaBriefcase,
+  school: FaGraduationCap,
+  badge: FaIdBadge,
+  verified: FaCertificate,
+  workspace_premium: FaAward,
+  open_in_new: FaExternalLinkAlt,
+  arrow_forward: FaArrowRight,
+  translate: FaLanguage,
+  contacts: FaAddressBook,
+  lock: FaLock,
+  visibility: FaEye,
+  terminal: FaTerminal,
+  lan: FaNetworkWired,
+  dark_mode: FaMoon,
+  light_mode: FaSun,
+  menu: FaBars,
+  close: FaTimes,
+  code: FaCode,
+  bolt: FaBolt,
+  sync: FaSyncAlt,
+  send: FaPaperPlane,
+  location_on: FaMapMarkerAlt,
+  arrow_back: FaArrowLeft,
+  tips_and_updates: FaLightbulb,
+  check: FaCheck,
+};
 
 interface IconProps {
   name: string;
@@ -10,15 +83,13 @@ interface IconProps {
   filled?: boolean;
 }
 
-export function Icon({ name, className = "", filled = false }: IconProps) {
-  return (
-    <span
-      className={`material-symbols-outlined ${className}`}
-      style={filled ? { fontVariationSettings: "'FILL' 1" } : undefined}
-    >
-      {name}
-    </span>
-  );
+export function Icon({ name, className = "" }: IconProps) {
+  const Component = iconMap[name];
+  if (!Component) {
+    console.warn(`Icon "${name}" not found in Fa mapping`);
+    return null;
+  }
+  return <Component className={`inline-block ${className}`} />;
 }
 
 interface NavLinkItem {
@@ -51,7 +122,7 @@ export function Navbar({ activePath, ctaLabel = "Hire Me" }: NavbarProps) {
         <Link to="/" onClick={() => setMobileOpen(false)} className="font-headline-md font-semibold text-on-surface">
           Exaucé Umba
         </Link>
-        <div className="hidden items-center gap-6 lg:flex bg-primary/90 rounded-full px-4 py-2">
+        <div className="hidden items-center gap-6 lg:flex bg-surface-container/60 border border-on-surface/5 rounded-full px-4 py-2">
           {navLinks.map(({ labelFr, labelEn, to }) => {
             const isActive = activePath === to;
             const label = lang === "fr" ? labelFr : labelEn;
@@ -59,11 +130,10 @@ export function Navbar({ activePath, ctaLabel = "Hire Me" }: NavbarProps) {
               <Link
                 key={to}
                 to={to}
-                className={`font-label-md transition-colors duration-300 ${
+                className={`font-label-md transition-colors duration-300 px-3 py-1 rounded-full ${
                   isActive
-                    ? " font-bold text-primary bg-white/90 rounded-full px-2"
-                    // : "font-medium text-on-surface-variant hover:text-white"
-                    : "font-medium text-white/70 hover:text-white/90"
+                    ? "font-bold text-primary bg-primary/10"
+                    : "font-medium text-on-surface/75 hover:text-on-surface"
                 }`}
               >
                 {label}
@@ -75,11 +145,11 @@ export function Navbar({ activePath, ctaLabel = "Hire Me" }: NavbarProps) {
           <button
             aria-label="toggle-theme"
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            className="rounded-full p-2 text-on-surface hover:bg-black/5"
+            className="rounded-full p-2 text-on-surface hover:bg-black/5 flex items-center justify-center"
           >
             {theme === "light"
-              ? <span className="material-symbols-outlined">dark_mode</span>
-              : <span className="material-symbols-outlined">light_mode</span>}
+              ? <Icon name="dark_mode" className="text-[20px]" />
+              : <Icon name="light_mode" className="text-[20px]" />}
           </button>
           <button
             aria-label="toggle-lang"
@@ -97,11 +167,9 @@ export function Navbar({ activePath, ctaLabel = "Hire Me" }: NavbarProps) {
           <button
             aria-label="toggle-mobile-menu"
             onClick={() => setMobileOpen((o) => !o)}
-            className="flex lg:hidden rounded-full p-2 text-on-surface hover:bg-black/5 transition-colors"
+            className="flex lg:hidden rounded-full p-2 text-on-surface hover:bg-black/5 transition-colors items-center justify-center"
           >
-            <span className="material-symbols-outlined text-[26px]">
-              {mobileOpen ? "close" : "menu"}
-            </span>
+            <Icon name={mobileOpen ? "close" : "menu"} className="text-[24px]" />
           </button>
         </div>
       </div>
@@ -206,9 +274,9 @@ export function Footer({ variant = "full" }: FooterProps) {
             <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
           </div>
           <p className="font-label-md text-text-muted">{t("based") ?? "Based: RDC / Remote"}</p>
-          {/* <a href="/CV_Exaucé_Umba.pdf" target="_blank" rel="noreferrer" className="font-label-md text-primary underline decoration-primary decoration-2 underline-offset-4 transition hover:text-on-surface">
+          <a href="/CV_Exaucé_Umba.pdf" target="_blank" rel="noreferrer" className="font-label-md text-primary underline decoration-primary decoration-2 underline-offset-4 transition hover:text-on-surface">
             {t("download_cv")}
-          </a> */}
+          </a>
         </FooterColumn>
       </div>
       <div style={{borderTopColor:'var(--nav-border)'}} className="mx-auto flex max-w-container-max-width flex-col items-center justify-between gap-4 border-t px-4 sm:px-6 md:px-margin-desktop py-8 text-text-muted md:flex-row">

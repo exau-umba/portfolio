@@ -1,6 +1,7 @@
 import { Icon } from "../components/Layout";
 import { useRevealOnScroll, useWorkCardGlow } from "../hooks/useRevealOnScroll";
 import { useT } from "../i18n";
+import { use3DTilt } from "../hooks/use3DTilt";
 
 const stats = [
   { labelKey: "uptime_target", value: "99.9%" },
@@ -14,9 +15,15 @@ export function WorksPage() {
   useWorkCardGlow();
   const t = useT();
 
+  const cardNcdTilt = use3DTilt(5);
+  const cardBboptTilt = use3DTilt(5);
+  const cardAnnuaireTilt = use3DTilt(5);
+  const cardDismoiTilt = use3DTilt(5);
+
   return (
-    <div className="min-h-screen bg-background selection:bg-primary/30">
-      <main className="pb-24 pt-16">
+    <div className="min-h-screen bg-background selection:bg-primary/30 relative overflow-hidden">
+      <div className="developer-grid-hero" />
+      <main className="pb-24 pt-16 relative z-10">
         <header className="reveal mx-auto mb-24 max-w-container-max-width px-margin-desktop">
           <div className="max-w-3xl">
             <h1 className="font-display-lg mb-6 leading-tight">
@@ -27,9 +34,15 @@ export function WorksPage() {
         </header>
 
         <section className="mx-auto grid max-w-container-max-width grid-cols-1 gap-gutter px-margin-desktop md:grid-cols-12">
-          <div className="work-card group reveal relative overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:col-span-8">
+          <div
+            ref={cardNcdTilt.ref}
+            onMouseMove={cardNcdTilt.onMouseMove}
+            onMouseLeave={cardNcdTilt.onMouseLeave}
+            style={cardNcdTilt.style}
+            className="work-card group reveal relative overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:col-span-8 cursor-pointer"
+          >
             <div className="work-card-glow" />
-            <div className="relative z-10 flex h-full flex-col p-10">
+            <div style={{ transform: "translateZ(20px)" }} className="relative z-10 flex h-full flex-col p-10">
               <div className="mb-8">
                 <span className="mb-4 inline-block rounded-full bg-primary-container/20 px-3 py-1 font-label-sm text-primary">
                   {t("arch_security")}
@@ -70,9 +83,15 @@ export function WorksPage() {
             </div>
           </div>
 
-          <div className="work-card group reveal relative overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:col-span-4">
+          <div
+            ref={cardBboptTilt.ref}
+            onMouseMove={cardBboptTilt.onMouseMove}
+            onMouseLeave={cardBboptTilt.onMouseLeave}
+            style={cardBboptTilt.style}
+            className="work-card group reveal relative overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:col-span-4 cursor-pointer"
+          >
             <div className="work-card-glow" />
-            <div className="relative z-10 flex h-full flex-col p-8">
+            <div style={{ transform: "translateZ(20px)" }} className="relative z-10 flex h-full flex-col p-8">
               <div className="mb-6">
                 <span className="mb-4 inline-block rounded-full bg-primary-container/20 px-3 py-1 font-label-sm text-primary">
                   {t("optimization_tool")}
@@ -108,45 +127,23 @@ export function WorksPage() {
             </div>
           </div>
 
-          <div className="work-card group reveal relative overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:col-span-5">
+          <div
+            ref={cardAnnuaireTilt.ref}
+            onMouseMove={cardAnnuaireTilt.onMouseMove}
+            onMouseLeave={cardAnnuaireTilt.onMouseLeave}
+            style={cardAnnuaireTilt.style}
+            className="work-card group reveal relative overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:col-span-5 cursor-pointer"
+          >
             <div className="work-card-glow" />
-            <div className="p-8">
-              <span className="mb-4 inline-block rounded-full bg-primary-container/20 px-3 py-1 font-label-sm text-primary">
-                {t("data_engineering")}
-              </span>
-              <h2 className="font-headline-md mb-3 text-on-surface">{t("work_gridcore_title")}</h2>
-              <p className="mb-6 font-body-md text-text-muted">{t("work_gridcore_desc")}</p>
-              <div className="mb-8 flex flex-wrap gap-2">
-                {["Go", "Redis"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-on-surface/5 bg-surface-container-highest/50 px-3.5 py-1 font-label-sm text-text-muted transition-all duration-300 hover:border-primary/20 hover:bg-primary/10 hover:text-primary"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <div className="h-48 overflow-hidden rounded-lg bg-surface-container">
-                <img
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw4q1WycxSkOkidYYRrsEV_LZ1ZHqoLtdq6hFanXafJdOCGG2e51pF-EzXMd37wda57y0IKiejw6LptLAe29l5iem_b9m9eMR-snTe9AN4w8zO676oZePMxvRDnMop5iC1cC0kLwYb0_luuPwwOQzpW2Q-4jvRVDk9TbrGixw31iq7qLXaWdjw4dpNOmeFIgLOc1aPA4bq8qMXqe7nCUUP7w8IjHFjVlKS2BVmSjvC1V8p_PZPyUAn2zVQSdKx1RNz9cukTJ0JpB4"
-                  alt="GridCore Analytics visualization"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="work-card group reveal relative overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:col-span-7">
-            <div className="work-card-glow" />
-            <div className="flex h-full items-center gap-8 p-10">
-              <div className="w-1/2">
+            <div style={{ transform: "translateZ(20px)" }} className="p-8 flex flex-col h-full justify-between">
+              <div>
                 <span className="mb-4 inline-block rounded-full bg-primary-container/20 px-3 py-1 font-label-sm text-primary">
-                  {t("backend_infra")}
+                  {t("public_registry")}
                 </span>
-                <h2 className="font-headline-md mb-3 text-on-surface">{t("work_edgesecure_title")}</h2>
-                <p className="mb-6 font-body-md text-text-muted">{t("work_edgesecure_desc")}</p>
-                <div className="flex flex-wrap gap-2">
-                  {["Rust", "Kubernetes"].map((tag) => (
+                <h2 className="font-headline-md mb-3 text-on-surface">{t("work_annuaire_title")}</h2>
+                <p className="mb-6 font-body-md text-text-muted">{t("work_annuaire_desc")}</p>
+                <div className="mb-8 flex flex-wrap gap-2">
+                  {["React", "Node.js", "PostgreSQL", "Docker"].map((tag) => (
                     <span
                       key={tag}
                       className="rounded-full border border-on-surface/5 bg-surface-container-highest/50 px-3.5 py-1 font-label-sm text-text-muted transition-all duration-300 hover:border-primary/20 hover:bg-primary/10 hover:text-primary"
@@ -155,9 +152,63 @@ export function WorksPage() {
                     </span>
                   ))}
                 </div>
+                <div className="h-48 overflow-hidden rounded-lg bg-surface-container mb-6">
+                  <img
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    src="/annuaire_occ.png"
+                    alt="Annuaire de Certification"
+                  />
+                </div>
               </div>
-              <div className="flex h-full min-h-75 w-1/2 items-center justify-center rounded-lg border border-white/5 bg-surface-container/50 overflow-hidden">
-                <Icon name="lan" className="text-8xl text-primary/20 transition-all duration-500 group-hover:scale-110 group-hover:text-primary/35" filled />
+              <div>
+                <a href="https://annuaire.occdcpl.com" target="_blank" rel="noopener noreferrer" className="group/link inline-flex items-center gap-2 font-label-md text-primary">
+                  {t("visit_site")}
+                  <Icon name="arrow_forward" className="transition-transform group-hover/link:translate-x-1" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            ref={cardDismoiTilt.ref}
+            onMouseMove={cardDismoiTilt.onMouseMove}
+            onMouseLeave={cardDismoiTilt.onMouseLeave}
+            style={cardDismoiTilt.style}
+            className="work-card group reveal relative overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:col-span-7 cursor-pointer"
+          >
+            <div className="work-card-glow" />
+            <div style={{ transform: "translateZ(20px)" }} className="flex h-full items-center gap-8 p-10">
+              <div className="w-1/2 flex flex-col justify-between h-full">
+                <div>
+                  <span className="mb-4 inline-block rounded-full bg-primary-container/20 px-3 py-1 font-label-sm text-primary">
+                    {t("e_commerce")}
+                  </span>
+                  <h2 className="font-headline-md mb-3 text-on-surface">{t("work_dismoipapa_title")}</h2>
+                  <p className="mb-6 font-body-md text-text-muted">{t("work_dismoipapa_desc")}</p>
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {["Next.js", "WooCommerce", "Tailwind CSS"].map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-on-surface/5 bg-surface-container-highest/50 px-3.5 py-1 font-label-sm text-text-muted transition-all duration-300 hover:border-primary/20 hover:bg-primary/10 hover:text-primary"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <a href="https://dismoipapa.shop" target="_blank" rel="noopener noreferrer" className="group/link inline-flex items-center gap-2 font-label-md text-primary">
+                    {t("visit_site")}
+                    <Icon name="arrow_forward" className="transition-transform group-hover/link:translate-x-1" />
+                  </a>
+                </div>
+              </div>
+              <div className="w-1/2 h-full overflow-hidden rounded-lg bg-surface-container min-h-75 flex items-center justify-center">
+                <img
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  src="/dismoipapa.png"
+                  alt="Dis-moi papa"
+                />
               </div>
             </div>
           </div>

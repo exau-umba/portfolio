@@ -3,6 +3,8 @@ import { useRevealOnScroll } from "../hooks/useRevealOnScroll";
 import { useT } from "../i18n";
 import { Link } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
+import { use3DTilt } from "../hooks/use3DTilt";
+import { FaReact, FaNodeJs, FaJava, FaPython, FaDocker, FaAws, FaGitAlt, FaDatabase } from "react-icons/fa";
 
 /**
  * Cycles through an array of phrases with a slide-from-bottom / slide-out-top animation.
@@ -24,10 +26,10 @@ function RotatingHeroLine({ phrases }: { phrases: string[] }) {
 
   // Gradient colors for each phrase - matching cover/profile blue & cyan
   const gradients = [
-    "from-[#0052cc] to-[#00b0ff]",       // royal blue → light cyan
-    "from-[#0033aa] to-[#00d2ff]",       // navy → sky blue
-    "from-[#1a73e8] to-[#00f2fe]",       // electric blue → neon cyan
-    "from-[#002288] to-[#38f9d7]",       // deep dark blue → tealish cyan
+    "from-[#003152] to-[#ADDFF1]",
+    "from-[#0b3c5d] to-[#b3e0f2]",
+    "from-[#00263f] to-[#99d7f0]",
+    "from-[#1c4e70] to-[#c2ebfc]",
   ];
 
   return (
@@ -87,13 +89,61 @@ const workflowSteps = [
   { step: "4", titleKey: "workflow_step_4_title", descKey: "workflow_step_4_desc" },
 ];
 
+const techStickers = [
+  { name: "React", icon: FaReact, color: "text-[#61dafb]", glow: "hover:shadow-[0_8px_20px_rgba(97,218,251,0.25)] hover:border-[#61dafb]/40" },
+  { name: "TypeScript", icon: null, color: "text-[#3178c6]", glow: "hover:shadow-[0_8px_20px_rgba(49,120,198,0.25)] hover:border-[#3178c6]/40", isTS: true },
+  { name: "Node.js", icon: FaNodeJs, color: "text-[#339933]", glow: "hover:shadow-[0_8px_20px_rgba(51,153,51,0.25)] hover:border-[#339933]/40" },
+  { name: "Java", icon: FaJava, color: "text-[#007396]", glow: "hover:shadow-[0_8px_20px_rgba(0,115,150,0.25)] hover:border-[#007396]/40" },
+  { name: "Python", icon: FaPython, color: "text-[#3776ab]", glow: "hover:shadow-[0_8px_20px_rgba(55,118,171,0.25)] hover:border-[#3776ab]/40" },
+  { name: "Docker", icon: FaDocker, color: "text-[#2496ed]", glow: "hover:shadow-[0_8px_20px_rgba(36,150,237,0.25)] hover:border-[#2496ed]/40" },
+  { name: "PostgreSQL", icon: FaDatabase, color: "text-[#4169e1]", glow: "hover:shadow-[0_8px_20px_rgba(65,105,225,0.25)] hover:border-[#4169e1]/40" },
+  { name: "AWS", icon: FaAws, color: "text-[#ff9900]", glow: "hover:shadow-[0_8px_20px_rgba(255,153,0,0.25)] hover:border-[#ff9900]/40" },
+  { name: "Git", icon: FaGitAlt, color: "text-[#f05032]", glow: "hover:shadow-[0_8px_20px_rgba(240,80,50,0.25)] hover:border-[#f05032]/40" },
+];
+
+function TiltProjectCard({ project }: { project: any }) {
+  const t = useT();
+  const tilt = use3DTilt(6);
+
+  return (
+    <div
+      ref={tilt.ref}
+      onMouseMove={tilt.onMouseMove}
+      onMouseLeave={tilt.onMouseLeave}
+      style={tilt.style}
+      className="group relative aspect-4/3 overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated md:aspect-square cursor-pointer"
+    >
+      <img src={project.image} alt={t(project.key + "_title")} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+      <div 
+        style={{ transform: "translateZ(20px)" }}
+        className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/95 via-black/40 to-transparent p-6 sm:p-8"
+      >
+        <h3 className="font-headline-md mb-2 text-white">{t(project.key + "_title")}</h3>
+        <p className="mb-4 line-clamp-2 font-body-md text-white/80">{t(project.key + "_desc")}</p>
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map((tag: string) => (
+            <span
+              key={tag}
+              className="rounded-full bg-white/10 border border-white/20 px-3 py-1 font-label-sm text-white backdrop-blur-md"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function HomePage() {
   useRevealOnScroll();
   const t = useT();
+  const profileTilt = use3DTilt(8);
 
   return (
-    <div className="min-h-screen bg-background">
-      <main>
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      <div className="developer-grid-hero" />
+      <main className="relative z-10">
         <section className="reveal mx-auto max-w-container-max-width px-margin-mobile py-8 sm:px-margin-desktop sm:py-12 md:py-20">
           <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1.3fr_1fr]">
             <div>
@@ -125,14 +175,42 @@ export function HomePage() {
                 <Link to="/contact" className="rounded-full border border-black/10 bg-surface-container px-5 py-3 text-sm font-label-md text-on-surface sm:px-6">
                   {t("contact")}
                 </Link>
-                {/* <a href="/CV_Exaucé_Umba.pdf" target="_blank" rel="noreferrer" className="rounded-full border border-black/10 bg-surface-container px-5 py-3 text-sm font-label-md text-on-surface transition hover:bg-surface-container-highest sm:px-6">
+                <a href="/CV_Exaucé_Umba.pdf" target="_blank" rel="noreferrer" className="rounded-full border border-black/10 bg-surface-container px-5 py-3 text-sm font-label-md text-on-surface transition hover:bg-surface-container-highest sm:px-6">
                   {t("download_cv")}
-                </a> */}
+                </a>
+              </div>
+
+              <div className="mt-12 max-w-xl">
+                <p className="mb-4 font-label-sm uppercase tracking-wider text-text-muted text-xs">Technologies & Outils</p>
+                <div className="flex flex-wrap gap-2.5">
+                  {techStickers.map((tech, idx) => {
+                    const rotClass = idx % 3 === 0 ? "hover:rotate-2" : idx % 3 === 1 ? "hover:-rotate-2" : "hover:rotate-1";
+                    return (
+                      <div
+                        key={tech.name}
+                        className={`flex items-center gap-2 rounded-xl border border-on-surface/5 bg-surface-elevated/70 px-3 py-1.5 font-label-md text-on-surface backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-surface-elevated cursor-default shadow-xs ${tech.glow} ${rotClass}`}
+                      >
+                        {tech.isTS ? (
+                          <span className="font-bold text-[9px] bg-[#3178c6] text-white px-1 py-0.5 rounded-xs leading-none">TS</span>
+                        ) : tech.icon ? (
+                          <tech.icon className={`text-[15px] ${tech.color}`} />
+                        ) : null}
+                        <span className="text-xs font-semibold">{tech.name}</span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
             <div className="relative flex flex-col items-center justify-center">
-              <div className="relative">
+              <div
+                ref={profileTilt.ref}
+                onMouseMove={profileTilt.onMouseMove}
+                onMouseLeave={profileTilt.onMouseLeave}
+                style={profileTilt.style}
+                className="relative"
+              >
                 {/* Glow behind */}
                 <div className="absolute -bottom-10 left-1/2 h-24 w-[80%] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
                 
@@ -143,9 +221,12 @@ export function HomePage() {
                 <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-background via-background/70 to-transparent pointer-events-none rounded-b-3xl" />
                 
                 {/* Overlay Card - centered on the bottom boundary line */}
-                <div className="absolute bottom-0 left-1/2 z-10 w-[85%] max-w-[300px] -translate-x-1/2 translate-y-1/2 rounded-2xl bg-surface-elevated/85 border border-on-surface/10 p-3 sm:p-4 text-center text-on-surface backdrop-blur-md shadow-xl">
+                <div
+                  style={{ transform: "translate3d(-50%, 50%, 30px)" }}
+                  className="absolute bottom-0 left-1/2 z-10 w-[85%] max-w-[300px] rounded-2xl bg-surface-elevated/85 border border-on-surface/10 p-3 sm:p-4 text-center text-on-surface backdrop-blur-md shadow-xl"
+                >
                   <p className="mb-3 font-body-md text-on-surface text-xs sm:text-sm">{t("heroLead_short")}</p>
-                  <Link to="/contact" className="inline-block rounded-full bg-primary px-5 py-2 text-xs sm:text-sm font-label-md text-white shadow-md transition-transform hover:scale-95">
+                  <Link to="/contact" className="inline-block rounded-full bg-primary px-5 py-2 text-xs sm:text-sm font-label-md text-on-primary shadow-md transition-transform hover:scale-95">
                     {t("emailMe")}
                   </Link>
                 </div>
@@ -165,26 +246,7 @@ export function HomePage() {
           </div>
           <div className="grid grid-cols-1 gap-gutter md:grid-cols-2">
             {coreProjects.map((project) => (
-              <div
-                key={project.key}
-                className="group relative aspect-4/3 overflow-hidden rounded-xl border border-on-surface/10 bg-surface-elevated md:aspect-square"
-              >
-                <img src={project.image} alt={t(project.key + "_title")} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/95 via-black/40 to-transparent p-6 sm:p-8">
-                  <h3 className="font-headline-md mb-2 text-white">{t(project.key + "_title")}</h3>
-                  <p className="mb-4 line-clamp-2 font-body-md text-white/80">{t(project.key + "_desc")}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-white/10 border border-white/20 px-3 py-1 font-label-sm text-white backdrop-blur-md"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <TiltProjectCard project={project} key={project.key} />
             ))}
           </div>
         </section>
@@ -324,7 +386,7 @@ export function HomePage() {
               <h2 className="mb-12 font-display-lg">
                 {t("start_project")} <br className="hidden md:block" />
               </h2>
-              <Link to="/contact" className="inline-block rounded-full bg-primary px-12 py-4 font-label-md text-white transition-transform hover:scale-105">
+              <Link to="/contact" className="inline-block rounded-full bg-primary px-12 py-4 font-label-md text-on-primary transition-transform hover:scale-105">
                 {t("start_project")}
               </Link>
             </div>

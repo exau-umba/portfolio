@@ -210,8 +210,9 @@ export function BlogPostDetailPage() {
   const locale = lang === "fr" ? "fr-FR" : "en-US";
 
   return (
-    <div className="min-h-screen bg-background text-on-surface font-body-md">
-      <main className="pb-24 pt-8">
+    <div className="min-h-screen bg-background text-on-surface font-body-md relative">
+      <div className="developer-dot-pattern" />
+      <main className="pb-24 pt-8 relative z-10">
         {/* Navigation Breadcrumb */}
         <div className="mx-auto max-w-container-max-width px-margin-desktop mb-12">
           <button

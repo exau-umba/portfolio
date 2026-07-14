@@ -22,8 +22,9 @@ export function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background selection:bg-primary-container selection:text-on-primary-container">
-      <main className="mx-auto max-w-container-max-width px-margin-desktop pb-24 pt-16">
+    <div className="min-h-screen overflow-x-hidden bg-background selection:bg-primary-container selection:text-on-primary-container relative">
+      <div className="developer-dot-pattern" />
+      <main className="mx-auto max-w-container-max-width px-margin-desktop pb-24 pt-16 relative z-10">
         <div className="relative">
           <div className="pointer-events-none absolute -left-25 -top-25 z-[-1] h-75 w-75 bg-[radial-gradient(circle,rgba(0,82,204,0.1)_0%,rgba(0,82,204,0)_70%)]" />
 
