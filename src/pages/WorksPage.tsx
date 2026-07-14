@@ -21,8 +21,9 @@ export function WorksPage() {
   const cardDismoiTilt = use3DTilt(5);
 
   return (
-    <div className="min-h-screen bg-background selection:bg-primary/30">
-      <main className="pb-24 pt-16">
+    <div className="min-h-screen bg-background selection:bg-primary/30 relative overflow-hidden">
+      <div className="developer-grid-hero" />
+      <main className="pb-24 pt-16 relative z-10">
         <header className="reveal mx-auto mb-24 max-w-container-max-width px-margin-desktop">
           <div className="max-w-3xl">
             <h1 className="font-display-lg mb-6 leading-tight">

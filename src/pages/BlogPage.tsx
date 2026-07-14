@@ -47,8 +47,9 @@ export function BlogPage() {
   const { lang } = useContext(UiContext);
   const locale = lang === "fr" ? "fr-FR" : "en-US";
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background font-body-md">
-      <main className="pb-24 pt-16">
+    <div className="min-h-screen overflow-x-hidden bg-background font-body-md relative">
+      <div className="developer-dot-pattern" />
+      <main className="pb-24 pt-16 relative z-10">
         <header className="reveal mx-auto mb-16 max-w-container-max-width px-margin-desktop">
           <span className="mb-4 block font-label-sm uppercase tracking-widest text-primary">
             {t("blog_span")}

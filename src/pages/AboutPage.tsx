@@ -13,8 +13,9 @@ export function AboutPage() {
   const skillExpertiseTilt = use3DTilt(6);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background selection:bg-primary-container selection:text-on-primary-container">
-      <main className="pb-16 pt-16 sm:pb-24">
+    <div className="min-h-screen overflow-x-hidden bg-background selection:bg-primary-container selection:text-on-primary-container relative">
+      <div className="developer-dot-pattern" />
+      <main className="pb-16 pt-16 sm:pb-24 relative z-10">
 
         {/* ── HERO ───────────────────────────────────────────── */}
         <section className="mx-auto mb-16 max-w-container-max-width px-4 sm:px-6 md:px-margin-desktop sm:mb-24 md:mb-32">

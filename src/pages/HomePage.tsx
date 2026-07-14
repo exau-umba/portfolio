@@ -4,6 +4,7 @@ import { useT } from "../i18n";
 import { Link } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
 import { use3DTilt } from "../hooks/use3DTilt";
+import { FaReact, FaNodeJs, FaJava, FaPython, FaDocker, FaAws, FaGitAlt, FaDatabase } from "react-icons/fa";
 
 /**
  * Cycles through an array of phrases with a slide-from-bottom / slide-out-top animation.
@@ -88,6 +89,18 @@ const workflowSteps = [
   { step: "4", titleKey: "workflow_step_4_title", descKey: "workflow_step_4_desc" },
 ];
 
+const techStickers = [
+  { name: "React", icon: FaReact, color: "text-[#61dafb]", glow: "hover:shadow-[0_8px_20px_rgba(97,218,251,0.25)] hover:border-[#61dafb]/40" },
+  { name: "TypeScript", icon: null, color: "text-[#3178c6]", glow: "hover:shadow-[0_8px_20px_rgba(49,120,198,0.25)] hover:border-[#3178c6]/40", isTS: true },
+  { name: "Node.js", icon: FaNodeJs, color: "text-[#339933]", glow: "hover:shadow-[0_8px_20px_rgba(51,153,51,0.25)] hover:border-[#339933]/40" },
+  { name: "Java", icon: FaJava, color: "text-[#007396]", glow: "hover:shadow-[0_8px_20px_rgba(0,115,150,0.25)] hover:border-[#007396]/40" },
+  { name: "Python", icon: FaPython, color: "text-[#3776ab]", glow: "hover:shadow-[0_8px_20px_rgba(55,118,171,0.25)] hover:border-[#3776ab]/40" },
+  { name: "Docker", icon: FaDocker, color: "text-[#2496ed]", glow: "hover:shadow-[0_8px_20px_rgba(36,150,237,0.25)] hover:border-[#2496ed]/40" },
+  { name: "PostgreSQL", icon: FaDatabase, color: "text-[#4169e1]", glow: "hover:shadow-[0_8px_20px_rgba(65,105,225,0.25)] hover:border-[#4169e1]/40" },
+  { name: "AWS", icon: FaAws, color: "text-[#ff9900]", glow: "hover:shadow-[0_8px_20px_rgba(255,153,0,0.25)] hover:border-[#ff9900]/40" },
+  { name: "Git", icon: FaGitAlt, color: "text-[#f05032]", glow: "hover:shadow-[0_8px_20px_rgba(240,80,50,0.25)] hover:border-[#f05032]/40" },
+];
+
 function TiltProjectCard({ project }: { project: any }) {
   const t = useT();
   const tilt = use3DTilt(6);
@@ -128,8 +141,9 @@ export function HomePage() {
   const profileTilt = use3DTilt(8);
 
   return (
-    <div className="min-h-screen bg-background">
-      <main>
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      <div className="developer-grid-hero" />
+      <main className="relative z-10">
         <section className="reveal mx-auto max-w-container-max-width px-margin-mobile py-8 sm:px-margin-desktop sm:py-12 md:py-20">
           <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1.3fr_1fr]">
             <div>
@@ -164,6 +178,28 @@ export function HomePage() {
                 <a href="/CV_Exaucé_Umba.pdf" target="_blank" rel="noreferrer" className="rounded-full border border-black/10 bg-surface-container px-5 py-3 text-sm font-label-md text-on-surface transition hover:bg-surface-container-highest sm:px-6">
                   {t("download_cv")}
                 </a>
+              </div>
+
+              <div className="mt-12 max-w-xl">
+                <p className="mb-4 font-label-sm uppercase tracking-wider text-text-muted text-xs">Technologies & Outils</p>
+                <div className="flex flex-wrap gap-2.5">
+                  {techStickers.map((tech, idx) => {
+                    const rotClass = idx % 3 === 0 ? "hover:rotate-2" : idx % 3 === 1 ? "hover:-rotate-2" : "hover:rotate-1";
+                    return (
+                      <div
+                        key={tech.name}
+                        className={`flex items-center gap-2 rounded-xl border border-on-surface/5 bg-surface-elevated/70 px-3 py-1.5 font-label-md text-on-surface backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-surface-elevated cursor-default shadow-xs ${tech.glow} ${rotClass}`}
+                      >
+                        {tech.isTS ? (
+                          <span className="font-bold text-[9px] bg-[#3178c6] text-white px-1 py-0.5 rounded-xs leading-none">TS</span>
+                        ) : tech.icon ? (
+                          <tech.icon className={`text-[15px] ${tech.color}`} />
+                        ) : null}
+                        <span className="text-xs font-semibold">{tech.name}</span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
