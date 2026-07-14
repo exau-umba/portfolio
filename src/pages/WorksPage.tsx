@@ -64,7 +64,7 @@ export function WorksPage() {
                 <div className="relative aspect-video bg-surface-container">
                   <img
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdze4Duol0gwMJqoXnmwVkITq5WeaeVfG1Bdp8Ti8lye8vF1ctTg8KFIibFiwhf2SdewbVHveNtlYjH1eHXv38h4-04QSJpBLiMZU5W-vh3_VXfVpoDd82fVxMkoAm4Rqpo4Li0LrPtx9L3LSN_tZpvaomLbKXkFNV1mli5RzSP62jSnwHwkb80QRF9DR31sBCmsQ_W1PNiQjba76wPkCpJn_wcefPovnlJDq4YaKCwDwiu1b0ZMpZNwvqCxh0HntJAKk5ZMvn7To"
+                    src="/ncd-app.png"
                     alt="Système National de Certification dashboard"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-surface-elevated/80 to-transparent" />
@@ -99,7 +99,7 @@ export function WorksPage() {
                 <h2 className="font-headline-md mb-3 text-on-surface">{t("work_bbopt_title")}</h2>
                 <p className="mb-6 font-body-md text-text-muted">{t("work_bbopt_desc")}</p>
                 <div className="flex flex-wrap gap-2">
-                  {["React", "Python", "DevOps"].map((tag) => (
+                  {["Laravel", "Python", "Flutter"].map((tag) => (
                     <span
                       key={tag}
                       className="rounded-full border border-on-surface/5 bg-surface-container-highest/50 px-3.5 py-1 font-label-sm text-text-muted transition-all duration-300 hover:border-primary/20 hover:bg-primary/10 hover:text-primary"
@@ -113,7 +113,7 @@ export function WorksPage() {
                 <div className="relative h-64 overflow-hidden rounded-lg bg-surface-container">
                   <img
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLEdAZOO3VoXyTZ2gZJVfWpjI6UwSt9ZaDUsivR75S8gocJik6pl82iz0bJ5kjLtqefYhnnGkTgDUhuHPcF2Vqkno-GpjKdSEcSrpVbJHpoh3qiYa6UFJxuzrIenO2Tp69bWvEnqnqMQSYul_N7gFLsdX28-O06ci8Iz-VBqmu-HLlMv4W1ztnE3LNZ0YiIDCayoLfaJ_jCtmPZekKlwRn8IweF6p9CZ1TedKPjcPK3CyNVUX2sdhr6KDS6Cy36VZl6RlHGNAz_Ok"
+                    src="/bbopt_mobile.png"
                     alt="Bbopt interface"
                   />
                 </div>
@@ -143,7 +143,7 @@ export function WorksPage() {
                 <h2 className="font-headline-md mb-3 text-on-surface">{t("work_annuaire_title")}</h2>
                 <p className="mb-6 font-body-md text-text-muted">{t("work_annuaire_desc")}</p>
                 <div className="mb-8 flex flex-wrap gap-2">
-                  {["React", "Node.js", "PostgreSQL", "Docker"].map((tag) => (
+                  {["React", "PostgreSQL", "CI/CD"].map((tag) => (
                     <span
                       key={tag}
                       className="rounded-full border border-on-surface/5 bg-surface-container-highest/50 px-3.5 py-1 font-label-sm text-text-muted transition-all duration-300 hover:border-primary/20 hover:bg-primary/10 hover:text-primary"
@@ -155,7 +155,7 @@ export function WorksPage() {
                 <div className="h-48 overflow-hidden rounded-lg bg-surface-container mb-6">
                   <img
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    src="/annuaire_occ.png"
+                    src="/annuaire_certificat.png"
                     alt="Annuaire de Certification"
                   />
                 </div>
@@ -186,7 +186,7 @@ export function WorksPage() {
                   <h2 className="font-headline-md mb-3 text-on-surface">{t("work_dismoipapa_title")}</h2>
                   <p className="mb-6 font-body-md text-text-muted">{t("work_dismoipapa_desc")}</p>
                   <div className="flex flex-wrap gap-2 mb-8">
-                    {["Next.js", "WooCommerce", "Tailwind CSS"].map((tag) => (
+                    {["React.js", "PostgreSQL", "Django"].map((tag) => (
                       <span
                         key={tag}
                         className="rounded-full border border-on-surface/5 bg-surface-container-highest/50 px-3.5 py-1 font-label-sm text-text-muted transition-all duration-300 hover:border-primary/20 hover:bg-primary/10 hover:text-primary"
@@ -206,7 +206,7 @@ export function WorksPage() {
               <div className="w-1/2 h-full overflow-hidden rounded-lg bg-surface-container min-h-75 flex items-center justify-center">
                 <img
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  src="/dismoipapa.png"
+                  src="/dismoipapa_webapp.png"
                   alt="Dis-moi papa"
                 />
               </div>
