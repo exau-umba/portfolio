@@ -23,16 +23,16 @@
   --text-muted:               #736d67;
 
   /* Primary */
-  --primary:                  #0052cc;
-  --primary-container:        #e5efff;
-  --on-primary-container:     #003bb3;
+  --primary:                  #003152;
+  --primary-container:        #ADDFF1;
+  --on-primary-container:     #003152;
 
   /* Secondary */
   --secondary-container:      #eef3fc;
   --on-secondary-container:   #3b485c;
 
   /* Tertiary */
-  --tertiary:                 #00b0ff;
+  --tertiary:                 #ADDFF1;
 
   /* Pure white / pure black */
   --pure-white:               #ffffff;
@@ -72,16 +72,16 @@
   --text-muted:               #8899aa;
 
   /* Primary */
-  --primary:                  #3388ff;
-  --primary-container:        rgba(0, 82, 204, 0.25);
-  --on-primary-container:     #cce0ff;
+  --primary:                  #ADDFF1;
+  --primary-container:        rgba(0, 49, 82, 0.4);
+  --on-primary-container:     #ADDFF1;
 
   /* Secondary */
   --secondary-container:      rgba(255,255,255,0.06);
   --on-secondary-container:   #c0bebb;
 
   /* Tertiary */
-  --tertiary:                 #00d2ff;
+  --tertiary:                 #003152;
 
   /* Pure white (used as inverted accent) */
   --pure-white:               #1b2533;

@@ -25,10 +25,10 @@ function RotatingHeroLine({ phrases }: { phrases: string[] }) {
 
   // Gradient colors for each phrase - matching cover/profile blue & cyan
   const gradients = [
-    "from-[#0052cc] to-[#00b0ff]",       // royal blue → light cyan
-    "from-[#0033aa] to-[#00d2ff]",       // navy → sky blue
-    "from-[#1a73e8] to-[#00f2fe]",       // electric blue → neon cyan
-    "from-[#002288] to-[#38f9d7]",       // deep dark blue → tealish cyan
+    "from-[#003152] to-[#ADDFF1]",
+    "from-[#0b3c5d] to-[#b3e0f2]",
+    "from-[#00263f] to-[#99d7f0]",
+    "from-[#1c4e70] to-[#c2ebfc]",
   ];
 
   return (
