@@ -11,31 +11,31 @@ const blogPosts = [
     id: "gitops-speed-up-releases",
     categoryKey: "devops",
     categoryClass: "text-primary",
-    date: "2024-10-18",
+    date: "2024-07-13",
     titleKey: "blog_post_1_title",
     excerptKey: "blog_post_1_excerpt",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuD0KqUsD8fZnBRL0gN0M2_sVG-PL2nZLBiVSe3nI0BZNxnGCbocjFPuIVqVk1tEyXw-LjJ8F-V713rt3Jgd4q8Atv1QKTQdfMvbi7OXDXSgh3S7F3ANQHEVXwChZPTV-lKNvfVAfc-h4GZlpWFu36j5ojPx2XosTYyoZjf0ueqijBaGoofp3X-iplDUSl_ptmgw0GOlsU5vUQfPDiSKw1_vvKT_C6oh6FiU1LIwGdHa25si_qrmBMrgYHri43ISecHMC1xuWCt_004",
+      "https://buffer-media-uploads.s3.amazonaws.com/65a973e80411c231f70241dd/6a54ca5d644e0c0f67046ac1/0214ef8cfd452dd80073c667940f7303.original.jpg",
   },
   {
     id: "react-patterns-at-scale",
     categoryKey: "fullstack",
     categoryClass: "text-tertiary",
-    date: "2024-10-12",
+    date: "2024-07-02",
     titleKey: "blog_post_2_title",
     excerptKey: "blog_post_2_excerpt",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCLHtfsVQpUbTXNA-FTa_ExJ7DjKRKW4ZawC4oI-toZhb15nRR9Urx2vrcjQb-MWWScopPnDl-XL5xZEXXqH4TsKFH2nzf-YD-Dbla0VZAS9qUU0RmZrMlUsL6vrn3T14at9Arhr6nzMVwm0p1eWKo6GrK8HSLmwtmKkoSDwvPpFvFsfQFaO4-B0KURY-DaTI8qgctsun-sGemkDVgIpjHbUOTPS76ZO6MbUr91igNu-jb2PS8_JJS9ZpztJI0CdbxB2g0-yv9TXOc",
+      "https://buffer-media-uploads.s3.amazonaws.com/65a973e80411c231f70241dd/6a469ac09a80af5b990484c8/477d05d5090e12b6f07520e588a59c47.original.jpg",
   },
   {
     id: "kubecon-2024-insights",
     categoryKey: "events",
     categoryClass: "text-secondary-fixed",
-    date: "2024-09-28",
+    date: "2024-06-27",
     titleKey: "blog_post_3_title",
     excerptKey: "blog_post_3_excerpt",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAQqqa6Aa7IfF0qTQqNtwgYGbZ8cUpJZ5LvuAUNbyEO6mDMJPm9s8Kkgy5lDKIfdEzmngTb9_2Wzgt2__J0aP5UbWB19ap-imSmeFlnwF3sCniV_68PyLGfSakJX8YKz1GlQHu0WMSTi7Y3qekBSKTvfsZIpb57_Td2VadOb3jGjPcoYM7qlhgWvQhhKjIEoJvYRpgYVMOmp9Wn3Gfi7slmpN-NgZ_OdnrUoz6LULMjK3jTtBEkdcIzCc7HL88qE678v1rDBJTTK6o",
+      "https://buffer-media-uploads.s3.amazonaws.com/65a973e80411c231f70241dd/6a4009ef8f08ffc4be04f2ef/af121858c6dd5e12755d0d72a215c8a5.original.jpg",
   },
 ];
 

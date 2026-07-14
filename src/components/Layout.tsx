@@ -145,7 +145,7 @@ export function Navbar({ activePath, ctaLabel = "Hire Me" }: NavbarProps) {
           <button
             aria-label="toggle-theme"
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            className="rounded-full p-2 text-on-surface hover:bg-black/5 flex items-center justify-center"
+            className="rounded-full cursor-pointer p-2 text-on-surface hover:bg-black/5 flex items-center justify-center"
           >
             {theme === "light"
               ? <Icon name="dark_mode" className="text-[20px]" />
@@ -154,7 +154,7 @@ export function Navbar({ activePath, ctaLabel = "Hire Me" }: NavbarProps) {
           <button
             aria-label="toggle-lang"
             onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-            className="rounded-full border border-on-surface/20 px-3 py-1 text-sm text-on-surface"
+            className="rounded-full cursor-pointer border border-on-surface/20 px-3 py-1 text-sm text-on-surface"
           >
             {lang.toUpperCase()}
           </button>
@@ -167,7 +167,7 @@ export function Navbar({ activePath, ctaLabel = "Hire Me" }: NavbarProps) {
           <button
             aria-label="toggle-mobile-menu"
             onClick={() => setMobileOpen((o) => !o)}
-            className="flex lg:hidden rounded-full p-2 text-on-surface hover:bg-black/5 transition-colors items-center justify-center"
+            className="flex lg:hidden rounded-full cursor-pointer p-2 text-on-surface hover:bg-black/5 transition-colors items-center justify-center"
           >
             <Icon name={mobileOpen ? "close" : "menu"} className="text-[24px]" />
           </button>
@@ -188,7 +188,7 @@ export function Navbar({ activePath, ctaLabel = "Hire Me" }: NavbarProps) {
                 key={to}
                 to={to}
                 onClick={() => setMobileOpen(false)}
-                className={`flex items-center gap-3 rounded-xl px-4 py-3 font-label-md transition-colors duration-200 ${
+                className={`flex items-center gap-3 rounded-xl px-4 py-3 font-label-md transition-colors duration-200 cursor-pointer ${
                   isActive
                     ? "bg-primary-container/30 text-primary font-bold"
                     : "text-on-surface-variant hover:bg-surface-container hover:text-on-surface"
@@ -252,17 +252,20 @@ export function Footer({ variant = "full" }: FooterProps) {
           ))}
         </FooterColumn>
         <FooterColumn title={t("connect")}>
-          <a href="https://www.linkedin.com/in/exau-umba/" target="_blank" rel="noopener noreferrer" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
+          <a href="https://linkedin.com/in/exau-umba" target="_blank" rel="noopener noreferrer" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
             {t("social_linkedin")}
           </a>
-          <a href="https://www.facebook.com/exauce.umba.k" target="_blank" rel="noopener noreferrer" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
+          <a href="https://facebook.com/exauce.umba.k" target="_blank" rel="noopener noreferrer" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
             {t("social_facebook")}
+          </a>
+          <a href="https://instagram.com/exau-umba" target="_blank" rel="noopener noreferrer" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
+            {t("social_instagram")}
+          </a>
+          <a href="https://exauceumba.start.page" target="_blank" rel="noopener noreferrer" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
+            {t("social_startpage")}
           </a>
           <a href="https://github.com/exau-umba" target="_blank" rel="noopener noreferrer" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
             {t("social_github")}
-          </a>
-          <a href="https://x.com/exau-umba" target="_blank" rel="noopener noreferrer" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
-            {t("social_twitter")}
           </a>
           <Link to="/contact" className="font-label-md text-text-muted transition-colors hover:text-on-surface">
             {t("contact")}

@@ -49,7 +49,7 @@ const coreProjects = [
   {
     key: "core_project_1",
     tags: ["React JS", "PostgreSQL", "Mysql", "Microservices", "Docker", "TailwindCSS"],
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBdze4Duol0gwMJqoXnmwVkITq5WeaeVfG1Bdp8Ti8lye8vF1ctTg8KFIibFiwhf2SdewbVHveNtlYjH1eHXv38h4-04QSJpBLiMZU5W-vh3_VXfVpoDd82fVxMkoAm4Rqpo4Li0LrPtx9L3LSN_tZpvaomLbKXkFNV1mli5RzSP62jSnwHwkb80QRF9DR31sBCmsQ_W1PNiQjba76wPkCpJn_wcefPovnlJDq4YaKCwDwiu1b0ZMpZNwvqCxh0HntJAKk5ZMvn7To",
+    image: "/ncd-app.png",
   },
   {
     key: "core_project_2",
@@ -120,7 +120,7 @@ function TiltProjectCard({ project }: { project: any }) {
       >
         <h3 className="font-headline-md mb-2 text-white">{t(project.key + "_title")}</h3>
         <p className="mb-4 line-clamp-2 font-body-md text-white/80">{t(project.key + "_desc")}</p>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1">
           {project.tags.map((tag: string) => (
             <span
               key={tag}
@@ -244,7 +244,7 @@ export function HomePage() {
               <Icon name="arrow_forward" className="text-[20px] transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
-          <div className="grid grid-cols-1 gap-gutter md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-gutter md:grid-cols-3">
             {coreProjects.map((project) => (
               <TiltProjectCard project={project} key={project.key} />
             ))}
