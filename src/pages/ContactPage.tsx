@@ -78,7 +78,7 @@ export function ContactPage() {
                   <button
                     type="submit"
                     disabled={status !== "idle"}
-                    className={`group flex w-full items-center justify-center gap-2 rounded-xl py-5 font-label-md font-bold transition-all active:scale-[0.98] ${
+                    className={`group flex cursor-pointer w-full items-center justify-center gap-2 rounded-xl py-5 font-label-md font-bold transition-all active:scale-[0.98] ${
                       status === "sent"
                         ? "bg-green-500 text-white"
                         : "bg-primary-container text-on-primary-container hover:opacity-90"
@@ -131,9 +131,9 @@ export function ContactPage() {
                   Connect
                 </h3>
                 {[
-                  { icon: "link", titleKey: "social_linkedin", subtitleKey: "social_linkedin_sub", url: "https://linkedin.com/in/exau-umba" },
-                  { icon: "link", titleKey: "social_facebook", subtitleKey: "social_facebook_sub", url: "https://facebook.com/exauce.umba.k" },
-                  { icon: "link", titleKey: "social_instagram", subtitleKey: "social_instagram_sub", url: "https://instagram.com/exau-umba" },
+                  { icon: "li", titleKey: "social_linkedin", subtitleKey: "social_linkedin_sub", url: "https://linkedin.com/in/exau-umba" },
+                  { icon: "fb", titleKey: "social_facebook", subtitleKey: "social_facebook_sub", url: "https://facebook.com/exauce.umba.k" },
+                  { icon: "ig", titleKey: "social_instagram", subtitleKey: "social_instagram_sub", url: "https://instagram.com/exau-umba" },
                   { icon: "code", titleKey: "social_github", subtitleKey: "social_github_sub", url: "https://github.com/exau-umba" },
                   { icon: "link", titleKey: "social_startpage", subtitleKey: "social_startpage_sub", url: "https://exauceumba.start.page" },
                   { icon: "mail", titleKey: "social_email", subtitleKey: "social_email_sub", url: "mailto:umbaexauce233@gmail.com" },
@@ -155,7 +155,7 @@ export function ContactPage() {
                       </div>
                     </div>
                     <Icon
-                      name="north_east"
+                      name="open_in_new"
                       className="text-text-muted transition-colors group-hover:text-primary"
                     />
                   </a>

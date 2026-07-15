@@ -84,7 +84,7 @@ const translations = {
     social_facebook_sub: "Réseau social",
     social_twitter_sub: "Réseau social",
     social_github_sub: "Open Source & Projets",
-    social_email_sub: "hello@exauce.dev",
+    social_email_sub: "umbaexauce233@gmail.com",
     social_instagram_sub: "Réseau social & Partages",
     social_startpage_sub: "exauceumba.start.page",
     sending: "Envoi...",
