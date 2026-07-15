@@ -4,7 +4,9 @@ import { useT } from "../i18n";
 import { Link } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
 import { use3DTilt } from "../hooks/use3DTilt";
-import { FaReact, FaNodeJs, FaJava, FaPython, FaDocker, FaAws, FaGitAlt, FaDatabase } from "react-icons/fa";
+import { FaReact, FaJava, FaPython, FaDocker, FaAws, FaGitAlt, FaDatabase } from "react-icons/fa";
+import { SiN8N, SiMake, SiLangchain, SiOrange } from "react-icons/si";
+import { RiOpenaiFill } from "react-icons/ri";
 
 /**
  * Cycles through an array of phrases with a slide-from-bottom / slide-out-top animation.
@@ -53,7 +55,12 @@ const coreProjects = [
   },
   {
     key: "core_project_2",
-    tags: ["Python", "React", "CI/CD"],
+    tags: ["React JS", "Mysql", "TailwindCSS"],
+    image: "/annuaire_certificat.png",
+  },
+  {
+    key: "core_project_3",
+    tags: ["Python", "Laravel", "IoT", "AWS", "Flutter"],
     image: "/bbopt_logo.jpg",
   },
 ];
@@ -67,11 +74,18 @@ const services = [
     featured: false,
   },
   {
+    titleKey: "ai_agents_title",
+    descKey: "ai_agents_desc",
+    tags: ["LLMs", "RAG", "LangChain", "OpenAI", "Vector DB"],
+    icon: "robot",
+    featured: true,
+  },
+  {
     titleKey: "devops_title",
     descKey: "devops_desc",
     tags: ["Jenkins/GitLab", "Github Actions", "Automation"],
     icon: "settings_input_component",
-    featured: true,
+    featured: false,
   },
   {
     titleKey: "cloud_title",
@@ -79,6 +93,13 @@ const services = [
     tags: ["IaC", "EC2", "IAM", "S3", "Amplify"],
     icon: "cloud",
     featured: false,
+  },
+  {
+    titleKey: "automation_title",
+    descKey: "automation_desc",
+    tags: ["n8n", "Make", "Zapier", "Webhooks", "APIs"],
+    icon: "sitemap",
+    featured: true,
   },
 ];
 
@@ -99,6 +120,10 @@ const techStickers = [
   { name: "PostgreSQL", icon: FaDatabase, color: "text-[#4169e1]", glow: "hover:shadow-[0_8px_20px_rgba(65,105,225,0.25)] hover:border-[#4169e1]/40" },
   { name: "AWS", icon: FaAws, color: "text-[#ff9900]", glow: "hover:shadow-[0_8px_20px_rgba(255,153,0,0.25)] hover:border-[#ff9900]/40" },
   { name: "Git", icon: FaGitAlt, color: "text-[#f05032]", glow: "hover:shadow-[0_8px_20px_rgba(240,80,50,0.25)] hover:border-[#f05032]/40" },
+  { name: "n8n", icon: SiN8N, color: "text-[#ff6c37]", glow: "hover:shadow-[0_8px_20px_rgba(255,108,55,0.25)] hover:border-[#ff6c37]/40" },
+  { name: "OpenAI", icon: RiOpenaiFill, color: "text-[#74aa9c]", glow: "hover:shadow-[0_8px_20px_rgba(116,170,156,0.25)] hover:border-[#74aa9c]/40" },
+  { name: "Make", icon: SiMake, color: "text-[#ea2b6f]", glow: "hover:shadow-[0_8px_20px_rgba(234,43,111,0.25)] hover:border-[#ea2b6f]/40" },
+  { name: "LangChain", icon: SiLangchain, color: "text-[#139985]", glow: "hover:shadow-[0_8px_20px_rgba(19,153,133,0.25)] hover:border-[#139985]/40" },
 ];
 
 function TiltProjectCard({ project }: { project: any }) {
@@ -235,6 +260,67 @@ export function HomePage() {
           </div>
         </section>
 
+        {/* ── CLIENTS / PARTENAIRES ─────────────────────────── */}
+        <section className="reveal mx-auto max-w-container-max-width px-margin-mobile py-10 sm:px-margin-desktop border-y border-on-surface/5 bg-surface-elevated/20 rounded-2xl my-8">
+          <div className="flex flex-col items-center justify-between gap-8 lg:flex-row">
+            <span className="font-label-sm uppercase tracking-widest text-text-muted text-xs lg:whitespace-nowrap">
+              {t("trusted_by")}
+            </span>
+            <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+              
+              {/* LOGO 1 : Orange RDC */}
+              <div className="group flex items-center gap-2 opacity-50 hover:opacity-100 transition-all duration-300 cursor-default">
+                <SiOrange className="text-2xl text-[#FF7900] transition-transform group-hover:scale-110" />
+                <span className="font-sans font-bold text-lg text-on-surface tracking-tight lowercase">orange</span>
+              </div>
+
+              {/* LOGO 2 : Videray Technologies */}
+              <div className="group flex items-center gap-2 opacity-50 hover:opacity-100 transition-all duration-300 cursor-default">
+                <img src="/videray.png" alt="videray" className="w-8 h-8" />
+                <div className="flex flex-col">
+                  <span className="font-sans font-bold text-sm tracking-widest text-on-surface">VIDERAY</span>
+                  <span className="text-[8px] tracking-widest text-text-muted">TECHNOLOGIES</span>
+                </div>
+              </div>
+
+              {/* LOGO 3 : OCC (Office Congolais de Contrôle) */}
+              <div className="group flex items-center gap-2 opacity-50 hover:opacity-100 transition-all duration-300 cursor-default">
+                <img src="/logo-occ.png" alt="occ" className="w-8 " />
+                <div className="flex flex-col">
+                  <span className="font-sans font-black text-base leading-none text-on-surface">OCC</span>
+                  <span className="text-[7px] font-medium tracking-wide text-text-muted leading-tight">OFFICE CONGOLAIS DE CONTRÔLE</span>
+                </div>
+              </div>
+
+              {/* LOGO 4 : Ministère de l'Industrie (RDC) */}
+              <div className="group flex items-center gap-2 opacity-50 hover:opacity-100 transition-all duration-300 cursor-default">
+                <img src="/industry.png" alt="minint" className="w-8 " />
+                <div className="flex flex-col">
+                  <span className="font-sans font-bold text-xs tracking-tight text-on-surface">MINISTÈRE DE L'INDUSTRIE</span>
+                  <span className="text-[8px] font-semibold text-primary tracking-widest">RÉPUBLIQUE DÉMOCRATIQUE DU CONGO</span>
+                </div>
+              </div>
+
+              {/* LOGO 5 : Magic-Tech */}
+              {/* <div className="group flex items-center gap-2 opacity-50 hover:opacity-100 transition-all duration-300 cursor-default">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="transition-transform group-hover:scale-110">
+                  <path d="M8 24L24 8M22 6L26 10M13 10L14 12M18 15L20 16M9 18L10 19" stroke="url(#magic-grad)" strokeWidth="3" strokeLinecap="round" />
+                  <circle cx="24" cy="8" r="2" fill="#ea2b6f" className="animate-pulse" />
+                  <defs>
+                    <linearGradient id="magic-grad" x1="0" y1="32" x2="32" y2="0" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stopColor="#8A2BE2" />
+                      <stop offset="100%" stopColor="#ea2b6f" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div className="flex flex-col">
+                  <span className="font-sans font-black text-sm tracking-wider text-on-surface">MAGIC-TECH</span>
+                </div>
+              </div> */}
+
+            </div>
+          </div>
+        </section>
 
         <section className="reveal mx-auto max-w-container-max-width px-margin-mobile py-16 sm:px-margin-desktop">
           <div className="mb-8 flex flex-col gap-4 md:mb-12 md:flex-row md:items-end md:justify-between">
@@ -303,12 +389,12 @@ export function HomePage() {
             <span className="font-label-sm uppercase tracking-widest text-text-muted">{t("expertise")}</span>
             <p className="max-w-2xl font-headline-lg">{t("expertise_desc")} <span className="text-primary">{t("expertise_desc1")}</span> <span>{t("expertise_desc2")}</span></p>
           </div>
-          <div className="grid grid-cols-1 gap-gutter md:grid-cols-3">
+          <div className="flex flex-wrap justify-center gap-gutter">
             {services.map((service) => (
               <div
                 key={service.titleKey}
-                className={`rounded-2xl p-8 transition-all ${service.featured
-                  ? "z-10 scale-105 border border-primary/30 bg-primary-container shadow-2xl shadow-primary/20"
+                className={`w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] rounded-2xl p-8 transition-all ${service.featured
+                  ? "z-10 scale-[1.03] border border-primary/30 bg-primary-container shadow-2xl shadow-primary/20"
                   : "group border border-primary/20 bg-surface-container hover:border-primary/30"
                   }`}
               >

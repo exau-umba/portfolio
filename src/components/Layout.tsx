@@ -40,7 +40,9 @@ import {
   FaCheck,
   FaFacebook,
   FaInstagram,
-  FaLinkedin
+  FaLinkedin,
+  FaRobot,
+  FaSitemap
 } from "react-icons/fa";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -81,6 +83,8 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   fb: FaFacebook,
   ig: FaInstagram,
   li: FaLinkedin,
+  robot: FaRobot,
+  sitemap: FaSitemap,
 };
 
 interface IconProps {

@@ -11,6 +11,8 @@ export function AboutPage() {
   const skillDevopsTilt = use3DTilt(6);
   const skillCloudTilt = use3DTilt(6);
   const skillExpertiseTilt = use3DTilt(6);
+  const skillAiAgentsTilt = use3DTilt(6);
+  const skillAutomationTilt = use3DTilt(6);
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-background selection:bg-primary-container selection:text-on-primary-container relative">
@@ -87,6 +89,7 @@ export function AboutPage() {
             <p className="max-w-2xl font-body-md text-on-surface/60">{t("technical_proficiency_lead")}</p>
           </div>
           <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-12">
+            {/* Ligne 1 : Fullstack (5) & DevOps (7) */}
             <div
               ref={skillFullstackTilt.ref}
               onMouseMove={skillFullstackTilt.onMouseMove}
@@ -139,13 +142,67 @@ export function AboutPage() {
               </div>
             </div>
 
+            {/* Ligne 2 : AI Agents (7) & Workflows (5) */}
+            <div
+              ref={skillAiAgentsTilt.ref}
+              onMouseMove={skillAiAgentsTilt.onMouseMove}
+              onMouseLeave={skillAiAgentsTilt.onMouseLeave}
+              style={skillAiAgentsTilt.style}
+              className="reveal glass-card flex flex-col justify-between rounded-xl p-6 sm:p-8 sm:col-span-1 lg:col-span-7 cursor-pointer"
+              data-delay="250"
+            >
+              <div style={{ transform: "translateZ(20px)" }}>
+                <div>
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-primary-container/20 text-primary">
+                    <Icon name="robot" />
+                  </div>
+                  <h3 className="font-headline-md mb-3">{t("ai_agents_title")}</h3>
+                  <p className="text-text-muted text-sm sm:text-base">{t("ai_agents_desc")}</p>
+                </div>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {["LLMs (GPT, Claude)", "RAG", "LangChain", "Vector DB (Pinecone, PGVector)", "Semantic Search"].map((tag) => (
+                    <span key={tag} className="rounded-full border border-on-surface/10 bg-surface-container px-3 py-1 font-label-sm text-on-surface text-xs">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div
+              ref={skillAutomationTilt.ref}
+              onMouseMove={skillAutomationTilt.onMouseMove}
+              onMouseLeave={skillAutomationTilt.onMouseLeave}
+              style={skillAutomationTilt.style}
+              className="reveal glass-card flex flex-col justify-between rounded-xl p-6 sm:p-8 sm:col-span-1 lg:col-span-5 cursor-pointer"
+              data-delay="300"
+            >
+              <div style={{ transform: "translateZ(20px)" }}>
+                <div>
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-primary-container/20 text-primary">
+                    <Icon name="sitemap" />
+                  </div>
+                  <h3 className="font-headline-md mb-3">{t("automation_title")}</h3>
+                  <p className="mb-6 text-text-muted text-sm sm:text-base">{t("automation_desc")}</p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {["n8n", "Make", "Zapier", "API Integration", "Webhooks"].map((tag) => (
+                    <span key={tag} className="rounded-full border border-on-surface/10 bg-surface-container px-3 py-1 font-label-sm text-on-surface text-xs">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Ligne 3 : Cloud (5) & Focus Expertise (7) */}
             <div
               ref={skillCloudTilt.ref}
               onMouseMove={skillCloudTilt.onMouseMove}
               onMouseLeave={skillCloudTilt.onMouseLeave}
               style={skillCloudTilt.style}
-              className="reveal glass-card flex flex-col justify-between rounded-xl p-6 sm:p-8 sm:col-span-1 lg:col-span-7 cursor-pointer"
-              data-delay="300"
+              className="reveal glass-card flex flex-col justify-between rounded-xl p-6 sm:p-8 sm:col-span-1 lg:col-span-5 cursor-pointer"
+              data-delay="350"
             >
               <div style={{ transform: "translateZ(20px)" }}>
                 <div>
@@ -170,7 +227,7 @@ export function AboutPage() {
               onMouseMove={skillExpertiseTilt.onMouseMove}
               onMouseLeave={skillExpertiseTilt.onMouseLeave}
               style={skillExpertiseTilt.style}
-              className="reveal glass-card flex flex-col justify-between rounded-xl p-6 sm:p-8 sm:col-span-1 lg:col-span-5 cursor-pointer"
+              className="reveal glass-card flex flex-col justify-between rounded-xl p-6 sm:p-8 sm:col-span-1 lg:col-span-7 cursor-pointer"
               data-delay="400"
             >
               <div style={{ transform: "translateZ(20px)" }}>
