@@ -20,7 +20,7 @@ const blogPosts = [
   {
     id: "react-patterns-at-scale",
     categoryKey: "fullstack",
-    categoryClass: "text-tertiary",
+    categoryClass: "text-primary",
     date: "2024-07-02",
     titleKey: "blog_post_2_title",
     excerptKey: "blog_post_2_excerpt",

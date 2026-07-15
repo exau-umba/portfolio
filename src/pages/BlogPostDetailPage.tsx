@@ -241,11 +241,11 @@ export function BlogPostDetailPage() {
 
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-container font-bold text-on-primary-container">
-              EU
+              <img src="/profile_facebook.jpg" alt="" className="w-full h-full object-cover rounded-full" />
             </div>
             <div>
               <p className="font-label-md font-bold">{post.author}</p>
-              <p className="text-sm text-text-muted">{lang === "fr" ? "Ingénieur Cloud & DevOps" : "Cloud & DevOps Engineer"}</p>
+              <p className="text-sm text-text-muted">{lang === "fr" ? "Ingénieur Full Stack & DevOps" : "Full Stack & DevOps Engineer"}</p>
             </div>
           </div>
         </header>
