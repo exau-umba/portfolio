@@ -107,7 +107,7 @@ export function AboutPage() {
                   <p className="mb-6 text-text-muted text-sm sm:text-base">{t("fullstack_desc")}</p>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {["React/Next.js", "Node.js", "TypeScript", "PostgreSQL", "GraphQL"].map((tag) => (
+                  {["MVC", "Microservices", "API Design", "API REST", "React JS", "PostgreSQL", "Mysql"].map((tag) => (
                     <span key={tag} className="rounded-full border border-on-surface/10 bg-surface-container px-3 py-1 font-label-sm text-on-surface text-xs">
                       {tag}
                     </span>
@@ -133,7 +133,7 @@ export function AboutPage() {
                   <p className="text-text-muted text-sm sm:text-base">{t("devops_desc")}</p>
                 </div>
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {["Docker", "Kubernetes", "Terraform", "GitHub Actions", "Prometheus"].map((tag) => (
+                  {["Jenkins/GitLab", "Github Actions", "Automation", "Linux", "Docker", "NGINX", "Grafana"].map((tag) => (
                     <span key={tag} className="rounded-full border border-on-surface/10 bg-surface-container px-3 py-1 font-label-sm text-on-surface text-xs">
                       {tag}
                     </span>
@@ -213,7 +213,7 @@ export function AboutPage() {
                   <p className="mb-6 text-text-muted text-sm sm:text-base">{t("cloud_desc")}</p>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {["AWS", "Azure", "Serverless", "Cloudflare"].map((tag) => (
+                  {["AWS", "EC2", "IAM", "S3", "Amplify", "IaC", "Cloudflare"].map((tag) => (
                     <span key={tag} className="rounded-full border border-on-surface/10 bg-surface-container px-3 py-1 font-label-sm text-on-surface text-xs">
                       {tag}
                     </span>
@@ -353,8 +353,8 @@ export function AboutPage() {
               {/* Informations personnelles */}
               <div className="reveal glass-card rounded-2xl p-5 sm:p-6 border border-on-surface/10" data-delay="150">
                 <h3 className="font-headline-md mb-5 flex items-center gap-2 text-base sm:text-lg">
-                  <Icon name="badge" className="text-primary" />
-                  <span>{t("personal_info_title")}</span>
+                  <Icon name="badge" className="text-primary size-[24px]" />
+                  <span className="text-on-surface text-base sm:text-lg font-semibold">{t("personal_info_title")}</span>
                 </h3>
                 <div className="space-y-3 text-xs sm:text-sm">
                   {[
@@ -375,8 +375,8 @@ export function AboutPage() {
               {/* Certifications */}
               <div className="reveal space-y-4" data-delay="200">
                 <h3 className="font-headline-md flex items-center gap-2 text-base sm:text-lg">
-                  <Icon name="verified" className="text-primary" />
-                  <span>{t("certifications_heading")}</span>
+                  <Icon name="verified" className="text-primary size-[24px]" />
+                  <span className="text-on-surface text-base sm:text-lg font-semibold">{t("certifications_heading")}</span>
                 </h3>
                 <div className="grid grid-cols-1 gap-3">
                   {[
@@ -424,8 +424,8 @@ export function AboutPage() {
               {/* Langues */}
               <div className="reveal space-y-4" data-delay="250">
                 <h3 className="font-headline-md flex items-center gap-2 text-base sm:text-lg">
-                  <Icon name="translate" className="text-primary" />
-                  <span>{t("languages_heading")}</span>
+                  <Icon name="translate" className="text-primary size-[24px]" />
+                  <span className="text-on-surface text-base sm:text-lg font-semibold">{t("languages_heading")}</span>
                 </h3>
                 <div className="space-y-3">
                   {[
@@ -449,8 +449,8 @@ export function AboutPage() {
               {/* Références */}
               <div className="reveal space-y-4" data-delay="300">
                 <h3 className="font-headline-md flex items-center gap-2 text-base sm:text-lg">
-                  <Icon name="contacts" className="text-primary" />
-                  <span>{t("references_heading")}</span>
+                  <Icon name="contacts" className="text-primary size-[24px]" />
+                  <span className="text-on-surface text-base sm:text-lg font-semibold">{t("references_heading")}</span>
                 </h3>
                 <div className="space-y-3">
                   {[

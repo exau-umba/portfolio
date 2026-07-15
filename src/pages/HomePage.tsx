@@ -83,14 +83,14 @@ const services = [
   {
     titleKey: "devops_title",
     descKey: "devops_desc",
-    tags: ["Jenkins/GitLab", "Github Actions", "Automation"],
+    tags: ["Jenkins/GitLab", "Github Actions", "Automation", "Linux", "Docker", "NGINX", "Grafana"],
     icon: "settings_input_component",
     featured: false,
   },
   {
     titleKey: "cloud_title",
     descKey: "cloud_desc",
-    tags: ["IaC", "EC2", "IAM", "S3", "Amplify"],
+    tags: ["AWS", "EC2", "IAM", "S3", "Amplify", "IaC"],
     icon: "cloud",
     featured: false,
   },
@@ -261,20 +261,20 @@ export function HomePage() {
         </section>
 
         {/* ── CLIENTS / PARTENAIRES ─────────────────────────── */}
-        <section className="reveal mx-auto max-w-container-max-width px-margin-mobile py-10 sm:px-margin-desktop border-y border-on-surface/5 bg-surface-elevated/20 rounded-2xl my-8">
+        {/* <section className="reveal mx-auto max-w-container-max-width px-margin-mobile py-10 sm:px-margin-desktop border-y border-on-surface/5 bg-surface-elevated/20 rounded-2xl my-8">
           <div className="flex flex-col items-center justify-between gap-8 lg:flex-row">
             <span className="font-label-sm uppercase tracking-widest text-text-muted text-xs lg:whitespace-nowrap">
               {t("trusted_by")}
             </span>
             <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
               
-              {/* LOGO 1 : Orange RDC */}
+              
               <div className="group flex items-center gap-2 opacity-50 hover:opacity-100 transition-all duration-300 cursor-default">
                 <SiOrange className="text-2xl text-[#FF7900] transition-transform group-hover:scale-110" />
-                <span className="font-sans font-bold text-lg text-on-surface tracking-tight lowercase">orange</span>
+                <span className="font-sans font-bold text-lg text-on-surface tracking-tight ">Orange</span>
               </div>
 
-              {/* LOGO 2 : Videray Technologies */}
+             
               <div className="group flex items-center gap-2 opacity-50 hover:opacity-100 transition-all duration-300 cursor-default">
                 <img src="/videray.png" alt="videray" className="w-8 h-8" />
                 <div className="flex flex-col">
@@ -283,7 +283,7 @@ export function HomePage() {
                 </div>
               </div>
 
-              {/* LOGO 3 : OCC (Office Congolais de Contrôle) */}
+             
               <div className="group flex items-center gap-2 opacity-50 hover:opacity-100 transition-all duration-300 cursor-default">
                 <img src="/logo-occ.png" alt="occ" className="w-8 " />
                 <div className="flex flex-col">
@@ -292,7 +292,7 @@ export function HomePage() {
                 </div>
               </div>
 
-              {/* LOGO 4 : Ministère de l'Industrie (RDC) */}
+              
               <div className="group flex items-center gap-2 opacity-50 hover:opacity-100 transition-all duration-300 cursor-default">
                 <img src="/industry.png" alt="minint" className="w-8 " />
                 <div className="flex flex-col">
@@ -301,26 +301,9 @@ export function HomePage() {
                 </div>
               </div>
 
-              {/* LOGO 5 : Magic-Tech */}
-              {/* <div className="group flex items-center gap-2 opacity-50 hover:opacity-100 transition-all duration-300 cursor-default">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="transition-transform group-hover:scale-110">
-                  <path d="M8 24L24 8M22 6L26 10M13 10L14 12M18 15L20 16M9 18L10 19" stroke="url(#magic-grad)" strokeWidth="3" strokeLinecap="round" />
-                  <circle cx="24" cy="8" r="2" fill="#ea2b6f" className="animate-pulse" />
-                  <defs>
-                    <linearGradient id="magic-grad" x1="0" y1="32" x2="32" y2="0" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stopColor="#8A2BE2" />
-                      <stop offset="100%" stopColor="#ea2b6f" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-                <div className="flex flex-col">
-                  <span className="font-sans font-black text-sm tracking-wider text-on-surface">MAGIC-TECH</span>
-                </div>
-              </div> */}
-
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="reveal mx-auto max-w-container-max-width px-margin-mobile py-16 sm:px-margin-desktop">
           <div className="mb-8 flex flex-col gap-4 md:mb-12 md:flex-row md:items-end md:justify-between">
