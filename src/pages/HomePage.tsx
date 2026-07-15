@@ -54,7 +54,7 @@ const coreProjects = [
   {
     key: "core_project_2",
     tags: ["Python", "React", "CI/CD"],
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBLEdAZOO3VoXyTZ2gZJVfWpjI6UwSt9ZaDUsivR75S8gocJik6pl82iz0bJ5kjLtqefYhnnGkTgDUhuHPcF2Vqkno-GpjKdSEcSrpVbJHpoh3qiYa6UFJxuzrIenO2Tp69bWvEnqnqMQSYul_N7gFLsdX28-O06ci8Iz-VBqmu-HLlMv4W1ztnE3LNZ0YiIDCayoLfaJ_jCtmPZekKlwRn8IweF6p9CZ1TedKPjcPK3CyNVUX2sdhr6KDS6Cy36VZl6RlHGNAz_Ok",
+    image: "/bbopt_logo.jpg",
   },
 ];
 
@@ -62,21 +62,21 @@ const services = [
   {
     titleKey: "fullstack_title",
     descKey: "fullstack_desc",
-    tags: ["Microservices", "API Design", "React/Node"],
+    tags: ["MVC", "Microservices", "API Design", "API REST", "React JS", "PostgreSQL", "Mysql"],
     icon: "layers",
     featured: false,
   },
   {
     titleKey: "devops_title",
     descKey: "devops_desc",
-    tags: ["Jenkins/GitLab", "Automation"],
+    tags: ["Jenkins/GitLab", "Github Actions", "Automation"],
     icon: "settings_input_component",
     featured: true,
   },
   {
     titleKey: "cloud_title",
     descKey: "cloud_desc",
-    tags: ["Terraform", "Kubernetes", "IaC"],
+    tags: ["IaC", "EC2", "IAM", "S3", "Amplify"],
     icon: "cloud",
     featured: false,
   },
@@ -92,7 +92,7 @@ const workflowSteps = [
 const techStickers = [
   { name: "React", icon: FaReact, color: "text-[#61dafb]", glow: "hover:shadow-[0_8px_20px_rgba(97,218,251,0.25)] hover:border-[#61dafb]/40" },
   { name: "TypeScript", icon: null, color: "text-[#3178c6]", glow: "hover:shadow-[0_8px_20px_rgba(49,120,198,0.25)] hover:border-[#3178c6]/40", isTS: true },
-  { name: "Node.js", icon: FaNodeJs, color: "text-[#339933]", glow: "hover:shadow-[0_8px_20px_rgba(51,153,51,0.25)] hover:border-[#339933]/40" },
+  // { name: "Node.js", icon: FaNodeJs, color: "text-[#339933]", glow: "hover:shadow-[0_8px_20px_rgba(51,153,51,0.25)] hover:border-[#339933]/40" },
   { name: "Java", icon: FaJava, color: "text-[#007396]", glow: "hover:shadow-[0_8px_20px_rgba(0,115,150,0.25)] hover:border-[#007396]/40" },
   { name: "Python", icon: FaPython, color: "text-[#3776ab]", glow: "hover:shadow-[0_8px_20px_rgba(55,118,171,0.25)] hover:border-[#3776ab]/40" },
   { name: "Docker", icon: FaDocker, color: "text-[#2496ed]", glow: "hover:shadow-[0_8px_20px_rgba(36,150,237,0.25)] hover:border-[#2496ed]/40" },
@@ -263,7 +263,7 @@ export function HomePage() {
                 <p className="font-body-md text-text-muted">{t("modern_tech_stack_desc")}</p>
               </div>
               <div className="mt-8 flex gap-2 overflow-hidden">
-                {["AWS", "TERRAFORM", "GCP"].map((tag) => (
+                {["AWS", "Github Action", "Docker"].map((tag) => (
                   <div key={tag} className="rounded border border-black/10 px-3 py-1 text-xs font-bold text-on-surface">
                     {tag}
                   </div>
@@ -276,7 +276,7 @@ export function HomePage() {
               <p className="font-headline-md mb-8 leading-snug">{t("quote_block")}</p>
               <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary-container font-bold text-on-primary-container">
-                  EU
+                  <img src="/profile_facebook.jpg" alt="" className="h-full w-full object-cover object-top rounded-full" />
                 </div>
                 <div>
                   <p className="font-label-md font-bold">{t("engineer_name")}</p>
