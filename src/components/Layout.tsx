@@ -37,7 +37,12 @@ import {
   FaMapMarkerAlt,
   FaArrowLeft,
   FaLightbulb,
-  FaCheck
+  FaCheck,
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaRobot,
+  FaSitemap
 } from "react-icons/fa";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -75,6 +80,11 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   arrow_back: FaArrowLeft,
   tips_and_updates: FaLightbulb,
   check: FaCheck,
+  fb: FaFacebook,
+  ig: FaInstagram,
+  li: FaLinkedin,
+  robot: FaRobot,
+  sitemap: FaSitemap,
 };
 
 interface IconProps {
@@ -112,7 +122,7 @@ interface NavbarProps {
 
 // NavbarControls removed: using UiContext directly for theme/lang toggles
 
-export function Navbar({ activePath, ctaLabel = "Hire Me" }: NavbarProps) {
+export function Navbar({ activePath, ctaLabel = "Contact me" }: NavbarProps) {
   const { theme, setTheme, lang, setLang } = useContext(UiContext);
   const [mobileOpen, setMobileOpen] = useState(false);
 
