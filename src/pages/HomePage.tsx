@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
 import { use3DTilt } from "../hooks/use3DTilt";
 import { FaReact, FaJava, FaPython, FaDocker, FaAws, FaGitAlt, FaDatabase } from "react-icons/fa";
-import { SiN8N, SiMake, SiLangchain, SiOrange } from "react-icons/si";
+import { SiN8N, SiMake, SiLangchain } from "react-icons/si";
 import { RiOpenaiFill } from "react-icons/ri";
 
 /**
